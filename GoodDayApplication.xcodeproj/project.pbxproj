@@ -7,15 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D79895FC5F2CED713E1E9F90 /* Pods_GoodDayApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24070A916A4B108EE1D80DE9 /* Pods_GoodDayApplication.framework */; };
 		F093BD8B282B8B95004DBB62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F093BD8A282B8B95004DBB62 /* AppDelegate.swift */; };
 		F093BD8D282B8B95004DBB62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F093BD8C282B8B95004DBB62 /* SceneDelegate.swift */; };
 		F093BD8F282B8B95004DBB62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F093BD8E282B8B95004DBB62 /* ViewController.swift */; };
 		F093BD92282B8B95004DBB62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F093BD90282B8B95004DBB62 /* Main.storyboard */; };
 		F093BD94282B8B96004DBB62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F093BD93282B8B96004DBB62 /* Assets.xcassets */; };
 		F093BD97282B8B96004DBB62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F093BD95282B8B96004DBB62 /* LaunchScreen.storyboard */; };
+		F093BD9F282B8F50004DBB62 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F093BD9E282B8F50004DBB62 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		24070A916A4B108EE1D80DE9 /* Pods_GoodDayApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoodDayApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFD27FAE19D5D1DCBD09945E /* Pods-GoodDayApplication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoodDayApplication.debug.xcconfig"; path = "Target Support Files/Pods-GoodDayApplication/Pods-GoodDayApplication.debug.xcconfig"; sourceTree = "<group>"; };
+		E1880FC3D8E20985EF742C89 /* Pods-GoodDayApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoodDayApplication.release.xcconfig"; path = "Target Support Files/Pods-GoodDayApplication/Pods-GoodDayApplication.release.xcconfig"; sourceTree = "<group>"; };
 		F093BD87282B8B95004DBB62 /* GoodDayApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodDayApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F093BD8A282B8B95004DBB62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F093BD8C282B8B95004DBB62 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +29,7 @@
 		F093BD93282B8B96004DBB62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F093BD96282B8B96004DBB62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F093BD98282B8B96004DBB62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F093BD9E282B8F50004DBB62 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D79895FC5F2CED713E1E9F90 /* Pods_GoodDayApplication.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2494F0C578DB938B3004C029 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BFD27FAE19D5D1DCBD09945E /* Pods-GoodDayApplication.debug.xcconfig */,
+				E1880FC3D8E20985EF742C89 /* Pods-GoodDayApplication.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		27B0C4E2B09C6C09682E34DB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				24070A916A4B108EE1D80DE9 /* Pods_GoodDayApplication.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F093BD7E282B8B95004DBB62 = {
 			isa = PBXGroup;
 			children = (
 				F093BD89282B8B95004DBB62 /* GoodDayApplication */,
 				F093BD88282B8B95004DBB62 /* Products */,
+				2494F0C578DB938B3004C029 /* Pods */,
+				27B0C4E2B09C6C09682E34DB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +88,7 @@
 				F093BD90282B8B95004DBB62 /* Main.storyboard */,
 				F093BD93282B8B96004DBB62 /* Assets.xcassets */,
 				F093BD95282B8B96004DBB62 /* LaunchScreen.storyboard */,
+				F093BD9E282B8F50004DBB62 /* GoogleService-Info.plist */,
 				F093BD98282B8B96004DBB62 /* Info.plist */,
 			);
 			path = GoodDayApplication;
@@ -74,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F093BD9B282B8B96004DBB62 /* Build configuration list for PBXNativeTarget "GoodDayApplication" */;
 			buildPhases = (
+				B18B88079CF1CBFA5BDEC7EE /* [CP] Check Pods Manifest.lock */,
 				F093BD83282B8B95004DBB62 /* Sources */,
 				F093BD84282B8B95004DBB62 /* Frameworks */,
 				F093BD85282B8B95004DBB62 /* Resources */,
+				C8E1E544D6F5498DAC8F178B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,12 +155,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				F093BD97282B8B96004DBB62 /* LaunchScreen.storyboard in Resources */,
+				F093BD9F282B8F50004DBB62 /* GoogleService-Info.plist in Resources */,
 				F093BD94282B8B96004DBB62 /* Assets.xcassets in Resources */,
 				F093BD92282B8B95004DBB62 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B18B88079CF1CBFA5BDEC7EE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GoodDayApplication-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C8E1E544D6F5498DAC8F178B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GoodDayApplication/Pods-GoodDayApplication-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GoodDayApplication/Pods-GoodDayApplication-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GoodDayApplication/Pods-GoodDayApplication-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F093BD83282B8B95004DBB62 /* Sources */ = {
@@ -282,6 +354,7 @@
 		};
 		F093BD9C282B8B96004DBB62 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BFD27FAE19D5D1DCBD09945E /* Pods-GoodDayApplication.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -295,6 +368,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,12 +378,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		F093BD9D282B8B96004DBB62 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1880FC3D8E20985EF742C89 /* Pods-GoodDayApplication.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -323,6 +398,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -332,7 +408,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

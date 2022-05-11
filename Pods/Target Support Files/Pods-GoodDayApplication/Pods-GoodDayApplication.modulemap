@@ -1,0 +1,6 @@
+framework module Pods_GoodDayApplication {
+  umbrella header "Pods-GoodDayApplication-umbrella.h"
+
+  export *
+  module * { export * }
+}
