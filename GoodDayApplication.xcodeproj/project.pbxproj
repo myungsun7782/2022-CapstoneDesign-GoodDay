@@ -15,6 +15,23 @@
 		F093BD94282B8B96004DBB62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F093BD93282B8B96004DBB62 /* Assets.xcassets */; };
 		F093BD97282B8B96004DBB62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F093BD95282B8B96004DBB62 /* LaunchScreen.storyboard */; };
 		F093BD9F282B8F50004DBB62 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F093BD9E282B8F50004DBB62 /* GoogleService-Info.plist */; };
+		F093BDA1282B96A6004DBB62 /* InitialSettingViews.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F093BDA0282B96A6004DBB62 /* InitialSettingViews.storyboard */; };
+		F093BDA3282B99B5004DBB62 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F093BDA2282B99B5004DBB62 /* ColorManager.swift */; };
+		F093BDA5282B99E4004DBB62 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F093BDA4282B99E4004DBB62 /* UserDefaultsManager.swift */; };
+		F093BDA7282B9A04004DBB62 /* TimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F093BDA6282B9A04004DBB62 /* TimeManager.swift */; };
+		F093BDA9282B9A25004DBB62 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F093BDA8282B9A25004DBB62 /* FontManager.swift */; };
+		F093BDB3282B9A3F004DBB62 /* NanumSquareOTF_acEB.otf in Resources */ = {isa = PBXBuildFile; fileRef = F093BDAB282B9A3F004DBB62 /* NanumSquareOTF_acEB.otf */; };
+		F093BDB4282B9A3F004DBB62 /* NanumSquareL.otf in Resources */ = {isa = PBXBuildFile; fileRef = F093BDAC282B9A3F004DBB62 /* NanumSquareL.otf */; };
+		F093BDB5282B9A3F004DBB62 /* NanumSquareEB.otf in Resources */ = {isa = PBXBuildFile; fileRef = F093BDAD282B9A3F004DBB62 /* NanumSquareEB.otf */; };
+		F093BDB6282B9A3F004DBB62 /* NanumSquareOTF_acL.otf in Resources */ = {isa = PBXBuildFile; fileRef = F093BDAE282B9A3F004DBB62 /* NanumSquareOTF_acL.otf */; };
+		F093BDB7282B9A3F004DBB62 /* NanumSquareR.otf in Resources */ = {isa = PBXBuildFile; fileRef = F093BDAF282B9A3F004DBB62 /* NanumSquareR.otf */; };
+		F093BDB8282B9A3F004DBB62 /* NanumSquareOTF_acR.otf in Resources */ = {isa = PBXBuildFile; fileRef = F093BDB0282B9A3F004DBB62 /* NanumSquareOTF_acR.otf */; };
+		F093BDB9282B9A3F004DBB62 /* NanumSquareOTF_acB.otf in Resources */ = {isa = PBXBuildFile; fileRef = F093BDB1282B9A3F004DBB62 /* NanumSquareOTF_acB.otf */; };
+		F093BDBA282B9A3F004DBB62 /* NanumSquareB.otf in Resources */ = {isa = PBXBuildFile; fileRef = F093BDB2282B9A3F004DBB62 /* NanumSquareB.otf */; };
+		F093BDBF282B9BBC004DBB62 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F093BDBE282B9BBC004DBB62 /* WelcomeVC.swift */; };
+		F093BDC1282B9BF0004DBB62 /* NameSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F093BDC0282B9BF0004DBB62 /* NameSettingVC.swift */; };
+		F093BDC3282B9C08004DBB62 /* MbtiSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F093BDC2282B9C08004DBB62 /* MbtiSettingVC.swift */; };
+		F093BDC5282B9C40004DBB62 /* TimeSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F093BDC4282B9C40004DBB62 /* TimeSettingVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +47,23 @@
 		F093BD96282B8B96004DBB62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F093BD98282B8B96004DBB62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F093BD9E282B8F50004DBB62 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F093BDA0282B96A6004DBB62 /* InitialSettingViews.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InitialSettingViews.storyboard; sourceTree = "<group>"; };
+		F093BDA2282B99B5004DBB62 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
+		F093BDA4282B99E4004DBB62 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		F093BDA6282B9A04004DBB62 /* TimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeManager.swift; sourceTree = "<group>"; };
+		F093BDA8282B9A25004DBB62 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
+		F093BDAB282B9A3F004DBB62 /* NanumSquareOTF_acEB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTF_acEB.otf; sourceTree = "<group>"; };
+		F093BDAC282B9A3F004DBB62 /* NanumSquareL.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareL.otf; sourceTree = "<group>"; };
+		F093BDAD282B9A3F004DBB62 /* NanumSquareEB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareEB.otf; sourceTree = "<group>"; };
+		F093BDAE282B9A3F004DBB62 /* NanumSquareOTF_acL.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTF_acL.otf; sourceTree = "<group>"; };
+		F093BDAF282B9A3F004DBB62 /* NanumSquareR.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareR.otf; sourceTree = "<group>"; };
+		F093BDB0282B9A3F004DBB62 /* NanumSquareOTF_acR.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTF_acR.otf; sourceTree = "<group>"; };
+		F093BDB1282B9A3F004DBB62 /* NanumSquareOTF_acB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTF_acB.otf; sourceTree = "<group>"; };
+		F093BDB2282B9A3F004DBB62 /* NanumSquareB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareB.otf; sourceTree = "<group>"; };
+		F093BDBE282B9BBC004DBB62 /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
+		F093BDC0282B9BF0004DBB62 /* NameSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameSettingVC.swift; sourceTree = "<group>"; };
+		F093BDC2282B9C08004DBB62 /* MbtiSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MbtiSettingVC.swift; sourceTree = "<group>"; };
+		F093BDC4282B9C40004DBB62 /* TimeSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSettingVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,16 +116,65 @@
 		F093BD89282B8B95004DBB62 /* GoodDayApplication */ = {
 			isa = PBXGroup;
 			children = (
+				F093BDBD282B9B0C004DBB62 /* Views */,
+				F093BDBC282B9AF9004DBB62 /* Managers */,
+				F093BDBB282B9AE5004DBB62 /* ViewControllers */,
 				F093BD8A282B8B95004DBB62 /* AppDelegate.swift */,
 				F093BD8C282B8B95004DBB62 /* SceneDelegate.swift */,
-				F093BD8E282B8B95004DBB62 /* ViewController.swift */,
-				F093BD90282B8B95004DBB62 /* Main.storyboard */,
 				F093BD93282B8B96004DBB62 /* Assets.xcassets */,
-				F093BD95282B8B96004DBB62 /* LaunchScreen.storyboard */,
 				F093BD9E282B8F50004DBB62 /* GoogleService-Info.plist */,
 				F093BD98282B8B96004DBB62 /* Info.plist */,
+				F093BDAA282B9A3F004DBB62 /* Fonts */,
 			);
 			path = GoodDayApplication;
+			sourceTree = "<group>";
+		};
+		F093BDAA282B9A3F004DBB62 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F093BDAB282B9A3F004DBB62 /* NanumSquareOTF_acEB.otf */,
+				F093BDAC282B9A3F004DBB62 /* NanumSquareL.otf */,
+				F093BDAD282B9A3F004DBB62 /* NanumSquareEB.otf */,
+				F093BDAE282B9A3F004DBB62 /* NanumSquareOTF_acL.otf */,
+				F093BDAF282B9A3F004DBB62 /* NanumSquareR.otf */,
+				F093BDB0282B9A3F004DBB62 /* NanumSquareOTF_acR.otf */,
+				F093BDB1282B9A3F004DBB62 /* NanumSquareOTF_acB.otf */,
+				F093BDB2282B9A3F004DBB62 /* NanumSquareB.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		F093BDBB282B9AE5004DBB62 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F093BD8E282B8B95004DBB62 /* ViewController.swift */,
+				F093BDBE282B9BBC004DBB62 /* WelcomeVC.swift */,
+				F093BDC0282B9BF0004DBB62 /* NameSettingVC.swift */,
+				F093BDC2282B9C08004DBB62 /* MbtiSettingVC.swift */,
+				F093BDC4282B9C40004DBB62 /* TimeSettingVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F093BDBC282B9AF9004DBB62 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				F093BDA2282B99B5004DBB62 /* ColorManager.swift */,
+				F093BDA4282B99E4004DBB62 /* UserDefaultsManager.swift */,
+				F093BDA6282B9A04004DBB62 /* TimeManager.swift */,
+				F093BDA8282B9A25004DBB62 /* FontManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		F093BDBD282B9B0C004DBB62 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F093BD90282B8B95004DBB62 /* Main.storyboard */,
+				F093BD95282B8B96004DBB62 /* LaunchScreen.storyboard */,
+				F093BDA0282B96A6004DBB62 /* InitialSettingViews.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,9 +238,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				F093BD97282B8B96004DBB62 /* LaunchScreen.storyboard in Resources */,
+				F093BDB8282B9A3F004DBB62 /* NanumSquareOTF_acR.otf in Resources */,
+				F093BDA1282B96A6004DBB62 /* InitialSettingViews.storyboard in Resources */,
+				F093BDB4282B9A3F004DBB62 /* NanumSquareL.otf in Resources */,
+				F093BDBA282B9A3F004DBB62 /* NanumSquareB.otf in Resources */,
+				F093BDB6282B9A3F004DBB62 /* NanumSquareOTF_acL.otf in Resources */,
 				F093BD9F282B8F50004DBB62 /* GoogleService-Info.plist in Resources */,
 				F093BD94282B8B96004DBB62 /* Assets.xcassets in Resources */,
+				F093BDB9282B9A3F004DBB62 /* NanumSquareOTF_acB.otf in Resources */,
 				F093BD92282B8B95004DBB62 /* Main.storyboard in Resources */,
+				F093BDB7282B9A3F004DBB62 /* NanumSquareR.otf in Resources */,
+				F093BDB3282B9A3F004DBB62 /* NanumSquareOTF_acEB.otf in Resources */,
+				F093BDB5282B9A3F004DBB62 /* NanumSquareEB.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,8 +303,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				F093BD8F282B8B95004DBB62 /* ViewController.swift in Sources */,
+				F093BDC3282B9C08004DBB62 /* MbtiSettingVC.swift in Sources */,
+				F093BDA5282B99E4004DBB62 /* UserDefaultsManager.swift in Sources */,
+				F093BDA9282B9A25004DBB62 /* FontManager.swift in Sources */,
+				F093BDC5282B9C40004DBB62 /* TimeSettingVC.swift in Sources */,
+				F093BDC1282B9BF0004DBB62 /* NameSettingVC.swift in Sources */,
+				F093BDA7282B9A04004DBB62 /* TimeManager.swift in Sources */,
 				F093BD8B282B8B95004DBB62 /* AppDelegate.swift in Sources */,
 				F093BD8D282B8B95004DBB62 /* SceneDelegate.swift in Sources */,
+				F093BDA3282B99B5004DBB62 /* ColorManager.swift in Sources */,
+				F093BDBF282B9BBC004DBB62 /* WelcomeVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
