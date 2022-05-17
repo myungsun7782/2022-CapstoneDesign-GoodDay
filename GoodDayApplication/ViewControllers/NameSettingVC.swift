@@ -91,8 +91,13 @@ class NameSettingVC: UIViewController {
     }
     
     @IBAction func tapNextButton(_ sender: UIButton) {
-//        let storyBoard = UIStoryboard(name: "InitialSettingViews", bundle: nil)
-//        let mbtiSettingVC = storyBoard.instantiateViewController(withIdentifier: "MbtiSettingVC") as! MbtiSettingVC
+        let storyBoard = UIStoryboard(name: "InitialSettingViews", bundle: nil)
+        let mbtiSettingVC = storyBoard.instantiateViewController(withIdentifier: "MbtiSettingVC") as! MbtiSettingVC
+        
+        mbtiSettingVC.userName = nameTextField.text
+        mbtiSettingVC.modalPresentationStyle = .overFullScreen
+        mbtiSettingVC.modalTransitionStyle = .crossDissolve
+        present(mbtiSettingVC, animated: true, completion: nil)
     }
     
     // 유저가 화면을 터치했을 때 호출되는 메서드
