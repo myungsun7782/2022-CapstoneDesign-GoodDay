@@ -246,6 +246,12 @@ class MbtiSettingVC: UIViewController {
     @IBAction func tapNextButton(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "InitialSettingViews", bundle: nil)
         let timeSettingVC = storyboard.instantiateViewController(withIdentifier: "TimeSettingVC") as! TimeSettingVC
+        
+        timeSettingVC.userName = userName
+        timeSettingVC.mbti = combineMbti()
+        timeSettingVC.modalTransitionStyle = .crossDissolve
+        timeSettingVC.modalPresentationStyle = .overFullScreen
+        present(timeSettingVC, animated: true, completion: nil)
     }
     
     // 유저가 화면을 터치했을 때 호출되는 메서드
