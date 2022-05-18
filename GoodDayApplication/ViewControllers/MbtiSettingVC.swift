@@ -248,7 +248,7 @@ class MbtiSettingVC: UIViewController {
         let timeSettingVC = storyboard.instantiateViewController(withIdentifier: "TimeSettingVC") as! TimeSettingVC
         
         timeSettingVC.userName = userName
-        timeSettingVC.mbti = combineMbti()
+        timeSettingVC.userMbti = combineMbti()
         timeSettingVC.modalTransitionStyle = .crossDissolve
         timeSettingVC.modalPresentationStyle = .overFullScreen
         present(timeSettingVC, animated: true, completion: nil)

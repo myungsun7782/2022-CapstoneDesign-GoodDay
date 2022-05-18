@@ -10,7 +10,7 @@
 		D79895FC5F2CED713E1E9F90 /* Pods_GoodDayApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24070A916A4B108EE1D80DE9 /* Pods_GoodDayApplication.framework */; };
 		F093BD8B282B8B95004DBB62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F093BD8A282B8B95004DBB62 /* AppDelegate.swift */; };
 		F093BD8D282B8B95004DBB62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F093BD8C282B8B95004DBB62 /* SceneDelegate.swift */; };
-		F093BD8F282B8B95004DBB62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F093BD8E282B8B95004DBB62 /* ViewController.swift */; };
+		F093BD8F282B8B95004DBB62 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F093BD8E282B8B95004DBB62 /* MainVC.swift */; };
 		F093BD92282B8B95004DBB62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F093BD90282B8B95004DBB62 /* Main.storyboard */; };
 		F093BD94282B8B96004DBB62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F093BD93282B8B96004DBB62 /* Assets.xcassets */; };
 		F093BD97282B8B96004DBB62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F093BD95282B8B96004DBB62 /* LaunchScreen.storyboard */; };
@@ -32,6 +32,7 @@
 		F093BDC1282B9BF0004DBB62 /* NameSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F093BDC0282B9BF0004DBB62 /* NameSettingVC.swift */; };
 		F093BDC3282B9C08004DBB62 /* MbtiSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F093BDC2282B9C08004DBB62 /* MbtiSettingVC.swift */; };
 		F093BDC5282B9C40004DBB62 /* TimeSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F093BDC4282B9C40004DBB62 /* TimeSettingVC.swift */; };
+		F0C98C252834C42500298795 /* 30344-hamburger-close-animation.json in Resources */ = {isa = PBXBuildFile; fileRef = F0C98C242834C42500298795 /* 30344-hamburger-close-animation.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +42,7 @@
 		F093BD87282B8B95004DBB62 /* GoodDayApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodDayApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F093BD8A282B8B95004DBB62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F093BD8C282B8B95004DBB62 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F093BD8E282B8B95004DBB62 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F093BD8E282B8B95004DBB62 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		F093BD91282B8B95004DBB62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F093BD93282B8B96004DBB62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F093BD96282B8B96004DBB62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -64,6 +65,7 @@
 		F093BDC0282B9BF0004DBB62 /* NameSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameSettingVC.swift; sourceTree = "<group>"; };
 		F093BDC2282B9C08004DBB62 /* MbtiSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MbtiSettingVC.swift; sourceTree = "<group>"; };
 		F093BDC4282B9C40004DBB62 /* TimeSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSettingVC.swift; sourceTree = "<group>"; };
+		F0C98C242834C42500298795 /* 30344-hamburger-close-animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "30344-hamburger-close-animation.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				F093BD93282B8B96004DBB62 /* Assets.xcassets */,
 				F093BD9E282B8F50004DBB62 /* GoogleService-Info.plist */,
 				F093BD98282B8B96004DBB62 /* Info.plist */,
+				F0C98C242834C42500298795 /* 30344-hamburger-close-animation.json */,
 				F093BDAA282B9A3F004DBB62 /* Fonts */,
 			);
 			path = GoodDayApplication;
@@ -147,7 +150,7 @@
 		F093BDBB282B9AE5004DBB62 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				F093BD8E282B8B95004DBB62 /* ViewController.swift */,
+				F093BD8E282B8B95004DBB62 /* MainVC.swift */,
 				F093BDBE282B9BBC004DBB62 /* WelcomeVC.swift */,
 				F093BDC0282B9BF0004DBB62 /* NameSettingVC.swift */,
 				F093BDC2282B9C08004DBB62 /* MbtiSettingVC.swift */,
@@ -237,6 +240,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0C98C252834C42500298795 /* 30344-hamburger-close-animation.json in Resources */,
 				F093BD97282B8B96004DBB62 /* LaunchScreen.storyboard in Resources */,
 				F093BDB8282B9A3F004DBB62 /* NanumSquareOTF_acR.otf in Resources */,
 				F093BDA1282B96A6004DBB62 /* InitialSettingViews.storyboard in Resources */,
@@ -302,7 +306,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F093BD8F282B8B95004DBB62 /* ViewController.swift in Sources */,
+				F093BD8F282B8B95004DBB62 /* MainVC.swift in Sources */,
 				F093BDC3282B9C08004DBB62 /* MbtiSettingVC.swift in Sources */,
 				F093BDA5282B99E4004DBB62 /* UserDefaultsManager.swift in Sources */,
 				F093BDA9282B9A25004DBB62 /* FontManager.swift in Sources */,

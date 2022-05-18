@@ -84,7 +84,7 @@ class UserDefaultsManager {
     }
     
     func saveUserInfo(userName: String, userMbti: String ,userWakeUpTime: Date, userSleepTime: Date){
-        setIsInitialized()
+//        setIsInitialized()
         setUserUid()
         setBeginDay()
         setUserName(name: userName)

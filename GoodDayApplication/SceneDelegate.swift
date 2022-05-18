@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window?.rootViewController = welcomeVC
         } else { // 초기 설정이 이루어졌을 경우
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-            let mainVC = storyBoard.instantiateViewController(withIdentifier: "ViewController")
+            let mainVC = storyBoard.instantiateViewController(withIdentifier: "MainVC")
             
             window?.rootViewController = mainVC
         }

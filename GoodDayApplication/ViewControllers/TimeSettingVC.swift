@@ -21,7 +21,7 @@ class TimeSettingVC: UIViewController {
     
     // Variables
     var userName: String!
-    var mbti: String!
+    var userMbti: String!
     var wakeUpTime: Date!
     var sleepTime: Date!
     let userUid = UUID().uuidString
@@ -118,6 +118,16 @@ class TimeSettingVC: UIViewController {
     }
     
     @IBAction func tapFinishButton(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let mainVC = storyboard.instantiateViewController(withIdentifier: "MainVC") as! MainVC
+        
+        UserDefaultsManager.shared.saveUserInfo(userName: self.userName, userMbti: self.userMbti , userWakeUpTime: self.wakeUpTime, userSleepTime: self.sleepTime)
+        
+        mainVC.userName = UserDefaultsManager.shared.getUserName()
+        mainVC.userUid = UserDefaultsManager.shared.getUserUid()
+        mainVC.modalPresentationStyle = .overFullScreen
+        mainVC.modalTransitionStyle = .crossDissolve
+        present(mainVC, animated: true)
     }
     
     // 유저가 화면을 터치했을 때 호출되는 메서드
