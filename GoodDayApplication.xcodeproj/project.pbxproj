@@ -33,6 +33,7 @@
 		F093BDC3282B9C08004DBB62 /* MbtiSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F093BDC2282B9C08004DBB62 /* MbtiSettingVC.swift */; };
 		F093BDC5282B9C40004DBB62 /* TimeSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F093BDC4282B9C40004DBB62 /* TimeSettingVC.swift */; };
 		F0C98C252834C42500298795 /* 30344-hamburger-close-animation.json in Resources */ = {isa = PBXBuildFile; fileRef = F0C98C242834C42500298795 /* 30344-hamburger-close-animation.json */; };
+		F0EF5EB42834DCED00B2C80D /* FloatingButtonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EF5EB32834DCED00B2C80D /* FloatingButtonVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		F093BDC2282B9C08004DBB62 /* MbtiSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MbtiSettingVC.swift; sourceTree = "<group>"; };
 		F093BDC4282B9C40004DBB62 /* TimeSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSettingVC.swift; sourceTree = "<group>"; };
 		F0C98C242834C42500298795 /* 30344-hamburger-close-animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "30344-hamburger-close-animation.json"; sourceTree = "<group>"; };
+		F0EF5EB32834DCED00B2C80D /* FloatingButtonVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButtonVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 				F093BDC0282B9BF0004DBB62 /* NameSettingVC.swift */,
 				F093BDC2282B9C08004DBB62 /* MbtiSettingVC.swift */,
 				F093BDC4282B9C40004DBB62 /* TimeSettingVC.swift */,
+				F0EF5EB32834DCED00B2C80D /* FloatingButtonVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 			files = (
 				F093BD8F282B8B95004DBB62 /* MainVC.swift in Sources */,
 				F093BDC3282B9C08004DBB62 /* MbtiSettingVC.swift in Sources */,
+				F0EF5EB42834DCED00B2C80D /* FloatingButtonVC.swift in Sources */,
 				F093BDA5282B99E4004DBB62 /* UserDefaultsManager.swift in Sources */,
 				F093BDA9282B9A25004DBB62 /* FontManager.swift in Sources */,
 				F093BDC5282B9C40004DBB62 /* TimeSettingVC.swift in Sources */,

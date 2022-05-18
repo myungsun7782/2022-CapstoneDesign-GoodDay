@@ -269,6 +269,138 @@
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="90.401785714285708"/>
         </scene>
+        <!--Floating ButtonVC-->
+        <scene sceneID="vrZ-VU-rhz">
+            <objects>
+                <viewController storyboardIdentifier="FloatingButtonVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CH3-uX-1e5" customClass="FloatingButtonVC" customModule="GoodDayApplication" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="VWt-UH-xyr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S2C-bE-ASY">
+                                <rect key="frame" x="355" y="84" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="np1-bc-Va5"/>
+                                    <constraint firstAttribute="height" constant="32" id="vPV-9x-wSx"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r0Z-mC-s2u">
+                                <rect key="frame" x="353.5" y="142.5" width="35" height="35"/>
+                                <color key="backgroundColor" name="White"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="gNS-Em-fQb"/>
+                                    <constraint firstAttribute="width" constant="35" id="ixU-HX-W14"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="tapMissionButton:" destination="CH3-uX-1e5" eventType="touchUpInside" id="Q4e-LT-S8q"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ffg-JK-21q">
+                                <rect key="frame" x="353.5" y="202.5" width="35" height="35"/>
+                                <color key="backgroundColor" name="White"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="Sia-GH-P9z"/>
+                                    <constraint firstAttribute="height" constant="35" id="hJB-pY-61y"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="tapDiaryButton:" destination="CH3-uX-1e5" eventType="touchUpInside" id="KaT-nh-Ri0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v59-JM-fdG">
+                                <rect key="frame" x="353.5" y="262.5" width="35" height="35"/>
+                                <color key="backgroundColor" name="White"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="2La-9U-J27"/>
+                                    <constraint firstAttribute="height" constant="35" id="kuT-6U-geb"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="tapMyPageButton:" destination="CH3-uX-1e5" eventType="touchUpInside" id="gVG-pm-7RE"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Hv-nO-sci">
+                                <rect key="frame" x="310" y="150.5" width="28" height="19"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="미션">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ifc-tT-wDs">
+                                <rect key="frame" x="295" y="210.5" width="42" height="19"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="일기장">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhF-DJ-QEv">
+                                <rect key="frame" x="264" y="270.5" width="74" height="19"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="마이 페이지">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="16" name="NanumSquareOTFR"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9XD-36-oqs"/>
+                        <constraints>
+                            <constraint firstItem="r0Z-mC-s2u" firstAttribute="centerX" secondItem="S2C-bE-ASY" secondAttribute="centerX" id="58Z-Il-HeZ"/>
+                            <constraint firstItem="9XD-36-oqs" firstAttribute="trailing" secondItem="S2C-bE-ASY" secondAttribute="trailing" constant="27" id="6DG-jJ-mvP"/>
+                            <constraint firstItem="qhF-DJ-QEv" firstAttribute="centerX" secondItem="S2C-bE-ASY" secondAttribute="centerX" constant="-70" id="Iff-gK-faj"/>
+                            <constraint firstItem="v59-JM-fdG" firstAttribute="centerY" secondItem="S2C-bE-ASY" secondAttribute="centerY" constant="180" id="Rxy-Lh-es6"/>
+                            <constraint firstItem="Ffg-JK-21q" firstAttribute="centerX" secondItem="S2C-bE-ASY" secondAttribute="centerX" id="V88-51-qFi"/>
+                            <constraint firstItem="7Hv-nO-sci" firstAttribute="centerX" secondItem="S2C-bE-ASY" secondAttribute="centerX" constant="-47" id="aqA-dC-WqJ"/>
+                            <constraint firstItem="7Hv-nO-sci" firstAttribute="centerY" secondItem="S2C-bE-ASY" secondAttribute="centerY" constant="60" id="d3f-rc-W4J"/>
+                            <constraint firstItem="r0Z-mC-s2u" firstAttribute="centerY" secondItem="S2C-bE-ASY" secondAttribute="centerY" constant="60" id="e0Z-cg-iCp"/>
+                            <constraint firstItem="S2C-bE-ASY" firstAttribute="top" secondItem="9XD-36-oqs" secondAttribute="top" constant="40" id="fqa-wk-qKO"/>
+                            <constraint firstItem="v59-JM-fdG" firstAttribute="centerX" secondItem="S2C-bE-ASY" secondAttribute="centerX" id="h22-2F-34s"/>
+                            <constraint firstItem="Ffg-JK-21q" firstAttribute="centerY" secondItem="S2C-bE-ASY" secondAttribute="centerY" constant="120" id="jJg-FE-uri"/>
+                            <constraint firstItem="qhF-DJ-QEv" firstAttribute="centerY" secondItem="S2C-bE-ASY" secondAttribute="centerY" constant="180" id="n3A-gk-lya"/>
+                            <constraint firstItem="Ifc-tT-wDs" firstAttribute="centerY" secondItem="S2C-bE-ASY" secondAttribute="centerY" constant="120" id="n4K-Yi-7aq"/>
+                            <constraint firstItem="Ifc-tT-wDs" firstAttribute="centerX" secondItem="S2C-bE-ASY" secondAttribute="centerX" constant="-55" id="xw3-0a-oUc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="diaryButton" destination="Ffg-JK-21q" id="GlQ-ur-GIg"/>
+                        <outlet property="diaryButtonCenterY" destination="jJg-FE-uri" id="IbP-Zg-EPc"/>
+                        <outlet property="diaryLabelCenterX" destination="xw3-0a-oUc" id="Nvg-HI-qNB"/>
+                        <outlet property="diaryLabelCenterY" destination="n4K-Yi-7aq" id="1r0-d8-ImR"/>
+                        <outlet property="floatingView" destination="VWt-UH-xyr" id="6Fw-9w-dsi"/>
+                        <outlet property="missionButton" destination="r0Z-mC-s2u" id="wzj-pz-V54"/>
+                        <outlet property="missionButtonCenterY" destination="e0Z-cg-iCp" id="YoV-vs-qa0"/>
+                        <outlet property="missionLabelCenterX" destination="aqA-dC-WqJ" id="1jG-xh-XaF"/>
+                        <outlet property="missionLabelCenterY" destination="d3f-rc-W4J" id="QSG-I6-ZVO"/>
+                        <outlet property="myPageButton" destination="v59-JM-fdG" id="KiC-lu-03K"/>
+                        <outlet property="myPageButtonCenterY" destination="Rxy-Lh-es6" id="Tew-OJ-4zV"/>
+                        <outlet property="myPageLabelCenterX" destination="Iff-gK-faj" id="Ykj-rR-syy"/>
+                        <outlet property="myPageLabelCenterY" destination="n3A-gk-lya" id="gv9-fO-LsR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0wg-jl-8sc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="801" y="90"/>
+        </scene>
     </scenes>
     <resources>
         <image name="MainButterFly" width="68" height="60"/>
@@ -279,7 +411,7 @@
             <color red="0.75300002098083496" green="0.75300002098083496" blue="0.75300002098083496" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="MissionViewContainerColor">
-            <color red="0.98431372549019602" green="0.98431372549019602" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.98400002717971802" green="0.98400002717971802" blue="0.98400002717971802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="ThemeMainColor">
             <color red="0.0" green="0.082000002264976501" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

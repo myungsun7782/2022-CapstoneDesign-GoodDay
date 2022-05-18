@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import FirebaseFirestore
+import Lottie
 
 class MainVC: UIViewController {
     // UIView
@@ -28,8 +28,13 @@ class MainVC: UIViewController {
     let VIEW_RADIUS: CGFloat = 13
     let HONORIFIC_TITLE = "님,"
     let rightArrowImg = UIImage(systemName: "arrow.right", withConfiguration: UIImage.SymbolConfiguration(pointSize: 24, weight: .semibold))
+    let animationView = AnimationView(name: "30344-hamburger-close-animation")
+    let ANIMATION_VIEW_SIZE: CGFloat = 32
+    var isShowFloating: Bool = true
     var userName: String!
     var userUid: String!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +51,9 @@ class MainVC: UIViewController {
         
         // UILabel
         setUserNameLabel()
+        
+        // AnimationView
+        configureAnimationView()
     }
     
     private func setUserNameLabel() {
@@ -67,6 +75,49 @@ class MainVC: UIViewController {
         famousSayingView.layer.cornerRadius = VIEW_RADIUS
         famousSayingView.layer.shadowOffset = CGSize(width: 0, height: 0)
         famousSayingView.layer.shadowOpacity = VIEW_OPACITY
+    }
+    
+    private func configureAnimationView() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
+        
+        animationView.addGestureRecognizer(tapGesture)
+        animationView.contentMode = .scaleAspectFit
+        view.addSubview(animationView)
+        constrainAnimationView()
+    }
+    
+    private func constrainAnimationView() {
+        animationView.translatesAutoresizingMaskIntoConstraints = false
+        animationView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -27).isActive = true
+        animationView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 37).isActive = true
+        animationView.heightAnchor.constraint(equalToConstant: ANIMATION_VIEW_SIZE).isActive = true
+        animationView.widthAnchor.constraint(equalToConstant: ANIMATION_VIEW_SIZE).isActive = true
+    }
+    
+    @objc private func handleTap(sender: UITapGestureRecognizer) {
+        if isShowFloating {
+            animationView.play()
+            animationView.animationSpeed = 5
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let floatingButtonVC = storyboard.instantiateViewController(withIdentifier: "FloatingButtonVC") as! FloatingButtonVC
+            
+            floatingButtonVC.modalPresentationStyle = .overCurrentContext
+            
+            floatingButtonVC.delegate = self
+            present(floatingButtonVC, animated: false, completion: nil)
+        }
+    }
+}
+
+extension MainVC: DelegateFloatingButtonVC {
+    func passBoolValue(isShowFloating: Bool) {
+        self.isShowFloating = isShowFloating
+        
+        if !self.isShowFloating {
+            animationView.play(fromFrame: animationView.animation?.endFrame, toFrame: animationView.animation!.startFrame)
+            self.isShowFloating = true
+        }
     }
 }
 
