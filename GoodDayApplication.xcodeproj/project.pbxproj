@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D79895FC5F2CED713E1E9F90 /* Pods_GoodDayApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24070A916A4B108EE1D80DE9 /* Pods_GoodDayApplication.framework */; };
+		F0011A75283639E9002346AA /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0011A74283639E9002346AA /* MyPageVC.swift */; };
+		F0011A7728363A79002346AA /* MyPageView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0011A7628363A79002346AA /* MyPageView.storyboard */; };
 		F093BD8B282B8B95004DBB62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F093BD8A282B8B95004DBB62 /* AppDelegate.swift */; };
 		F093BD8D282B8B95004DBB62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F093BD8C282B8B95004DBB62 /* SceneDelegate.swift */; };
 		F093BD8F282B8B95004DBB62 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F093BD8E282B8B95004DBB62 /* MainVC.swift */; };
@@ -40,6 +42,8 @@
 		24070A916A4B108EE1D80DE9 /* Pods_GoodDayApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoodDayApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFD27FAE19D5D1DCBD09945E /* Pods-GoodDayApplication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoodDayApplication.debug.xcconfig"; path = "Target Support Files/Pods-GoodDayApplication/Pods-GoodDayApplication.debug.xcconfig"; sourceTree = "<group>"; };
 		E1880FC3D8E20985EF742C89 /* Pods-GoodDayApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoodDayApplication.release.xcconfig"; path = "Target Support Files/Pods-GoodDayApplication/Pods-GoodDayApplication.release.xcconfig"; sourceTree = "<group>"; };
+		F0011A74283639E9002346AA /* MyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
+		F0011A7628363A79002346AA /* MyPageView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPageView.storyboard; sourceTree = "<group>"; };
 		F093BD87282B8B95004DBB62 /* GoodDayApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodDayApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F093BD8A282B8B95004DBB62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F093BD8C282B8B95004DBB62 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -158,6 +162,7 @@
 				F093BDC2282B9C08004DBB62 /* MbtiSettingVC.swift */,
 				F093BDC4282B9C40004DBB62 /* TimeSettingVC.swift */,
 				F0EF5EB32834DCED00B2C80D /* FloatingButtonVC.swift */,
+				F0011A74283639E9002346AA /* MyPageVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 				F093BD90282B8B95004DBB62 /* Main.storyboard */,
 				F093BD95282B8B96004DBB62 /* LaunchScreen.storyboard */,
 				F093BDA0282B96A6004DBB62 /* InitialSettingViews.storyboard */,
+				F0011A7628363A79002346AA /* MyPageView.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -255,6 +261,7 @@
 				F093BDB9282B9A3F004DBB62 /* NanumSquareOTF_acB.otf in Resources */,
 				F093BD92282B8B95004DBB62 /* Main.storyboard in Resources */,
 				F093BDB7282B9A3F004DBB62 /* NanumSquareR.otf in Resources */,
+				F0011A7728363A79002346AA /* MyPageView.storyboard in Resources */,
 				F093BDB3282B9A3F004DBB62 /* NanumSquareOTF_acEB.otf in Resources */,
 				F093BDB5282B9A3F004DBB62 /* NanumSquareEB.otf in Resources */,
 			);
@@ -311,6 +318,7 @@
 			files = (
 				F093BD8F282B8B95004DBB62 /* MainVC.swift in Sources */,
 				F093BDC3282B9C08004DBB62 /* MbtiSettingVC.swift in Sources */,
+				F0011A75283639E9002346AA /* MyPageVC.swift in Sources */,
 				F0EF5EB42834DCED00B2C80D /* FloatingButtonVC.swift in Sources */,
 				F093BDA5282B99E4004DBB62 /* UserDefaultsManager.swift in Sources */,
 				F093BDA9282B9A25004DBB62 /* FontManager.swift in Sources */,
