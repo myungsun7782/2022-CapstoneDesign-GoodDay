@@ -19,7 +19,7 @@ class UserDefaultsManager {
     private let MBTI = "mbti"
     private let WAKE_UP_TIME = "wakeUpTime"
     private let SLEEP_TIME = "sleepTime"
-    
+    private let UPDATE_TIME = "updateTime"
     
     func getIsInitialized() -> Bool {
         return UserDefaults.standard.bool(forKey: IS_INITIALIZED)
@@ -83,7 +83,17 @@ class UserDefaultsManager {
         UserDefaults.standard.set(mbti, forKey: MBTI)
     }
     
-    func saveUserInfo(userName: String, userMbti: String ,userWakeUpTime: Date, userSleepTime: Date){
+    func getUpdateTime() -> Date? {
+        return UserDefaults.standard.object(forKey: UPDATE_TIME) as? Date
+    }
+    
+    func setUpdateTime() {
+        let currentTime = Date()
+        let currentUpdateTime = TimeManager.shared.dateToHourMinString(date: currentTime)
+        UserDefaults.standard.set(currentUpdateTime, forKey: UPDATE_TIME)
+    }
+    
+    func saveUserInfo(userName: String, userMbti: String ,userWakeUpTime: Date, userSleepTime: Date) {
 //        setIsInitialized()
         setUserUid()
         setBeginDay()
@@ -91,5 +101,6 @@ class UserDefaultsManager {
         setMbti(mbti: userMbti)
         setWakeUpTime(wakeUpTime: userWakeUpTime)
         setSleepTime(sleepTime: userSleepTime)
+        setBeginDay()
     }
 }

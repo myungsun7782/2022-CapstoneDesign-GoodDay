@@ -181,8 +181,17 @@ class FloatingButtonVC: UIViewController {
     }
     
     @IBAction func tapMyPageButton(_ sender: UIButton) {
+        let presentView = presentingViewController
+        
+        dismiss(animated: false) {
+            let storyboard = UIStoryboard(name: "MyPageView", bundle: nil)
+            let myPageVC = storyboard.instantiateViewController(withIdentifier: "MyPageVC") as! MyPageVC
+            
+            myPageVC.modalPresentationStyle = .overFullScreen
+            myPageVC.modalTransitionStyle = .crossDissolve
+            presentView?.present(myPageVC, animated: true, completion: nil)
+        }
     }
-    
     
     // 유저가 화면을 터치했을 때 호출되는 메서드
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
