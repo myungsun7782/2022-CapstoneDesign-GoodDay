@@ -7,6 +7,11 @@
 
 import UIKit
 
+enum MyPageEditorMode {
+    case new
+    case edit
+}
+
 class MyPageVC: UIViewController {
     // UIView
     @IBOutlet weak var myPageSubView: UIView!
@@ -128,6 +133,13 @@ class MyPageVC: UIViewController {
         sleepTimeStackView.alpha = 1
         self.view.layoutIfNeeded() // 화면 갱신
     }
+    
+    private func updateTime() {
+        UserDefaultsManager.shared.setUpdateTime()
+        if let updateTime = UserDefaultsManager.shared.getUpdateTime() {
+            updateTimeLabel.text = TimeManager.shared.dateToHourMinString(date: updateTime)
+        }
+    }
 
     @IBAction func tapEditButton(_ sender: UIButton) {
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) {
@@ -137,8 +149,56 @@ class MyPageVC: UIViewController {
     }
     
     @IBAction func tapMbtiEditButton(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "InitialSettingViews", bundle: nil)
+        let mbtiSettingVC = storyboard.instantiateViewController(withIdentifier: "MbtiSettingVC") as! MbtiSettingVC
+        
+        mbtiSettingVC.delegate = self
+        mbtiSettingVC.myPageEditorMode = .edit
+        mbtiSettingVC.mbti = mbtiEditLabel.text
+        
+        mbtiSettingVC.modalPresentationStyle = .overFullScreen
+        mbtiSettingVC.modalTransitionStyle = .crossDissolve
+        present(mbtiSettingVC, animated: true, completion: nil)
     }
     
     @IBAction func tapTimeEditButton(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "InitialSettingViews", bundle: nil)
+        let timeSettingVC = storyboard.instantiateViewController(withIdentifier: "TimeSettingVC") as! TimeSettingVC
+        
+        timeSettingVC.delegate = self
+        timeSettingVC.myPageEditorMode = .edit
+        timeSettingVC.wakeUpTime = UserDefaultsManager.shared.getWakeUpTime()
+        timeSettingVC.sleepTime = UserDefaultsManager.shared.getSleepTime()
+        
+        timeSettingVC.modalPresentationStyle = .overFullScreen
+        timeSettingVC.modalTransitionStyle = .crossDissolve
+        present(timeSettingVC, animated: true, completion: nil)
+    }
+    
+    @IBAction func tapBackButton(_ sender: UIButton) {
+        let notificationName = Notification.Name("sendBoolData")
+        let boolDic = ["isShowFloating" : false]
+        NotificationCenter.default.post(name: notificationName, object: nil, userInfo: boolDic)
+        dismiss(animated: true, completion: nil)
+    }
+}
+
+extension MyPageVC: DelegateMbtiSettingVC, DelegateTimeSettingVC {
+    func passMbtiData(mbti: String) {
+        updateTime()
+        mbtiLabel.text = mbti
+        mbtiEditLabel.text = mbti
+        UserDefaultsManager.shared.setMbti(mbti: mbti)
+    }
+    
+    func passTimeData(wakeUpTime: Date, sleepTime: Date) {
+        updateTime()
+        wakeUpTimeLabel.text = TimeManager.shared.dateToHourMinString(date: wakeUpTime)
+        sleepTimeLabel.text = TimeManager.shared.dateToHourMinString(date: sleepTime)
+        wakeUpTimeEditLabel.text = TimeManager.shared.dateToHourMinString(date: wakeUpTime)
+        sleepTimeEditLabel.text = TimeManager.shared.dateToHourMinString(date: sleepTime)
+        
+        UserDefaultsManager.shared.setWakeUpTime(wakeUpTime: wakeUpTime)
+        UserDefaultsManager.shared.setSleepTime(sleepTime: sleepTime)
     }
 }

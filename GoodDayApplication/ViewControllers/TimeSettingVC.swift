@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol DelegateTimeSettingVC: AnyObject {
+    func passTimeData(wakeUpTime: Date, sleepTime: Date)
+}
+
 class TimeSettingVC: UIViewController {
     // UITextField
     @IBOutlet weak var wakeUpTimeTextField: UITextField!
@@ -24,6 +28,8 @@ class TimeSettingVC: UIViewController {
     var userMbti: String!
     var wakeUpTime: Date!
     var sleepTime: Date!
+    var myPageEditorMode: MyPageEditorMode = .new
+    weak var delegate: DelegateTimeSettingVC?
     let userUid = UUID().uuidString
     let BUTTON_CORNER_RADIUS: CGFloat = 13
     
@@ -42,6 +48,7 @@ class TimeSettingVC: UIViewController {
         
         // UITextField
         configureTimeTextFields()
+        editTimeTextFields()
     }
     
     func configureTimeTextFields() {
@@ -118,16 +125,31 @@ class TimeSettingVC: UIViewController {
     }
     
     @IBAction func tapFinishButton(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let mainVC = storyboard.instantiateViewController(withIdentifier: "MainVC") as! MainVC
-        
-        UserDefaultsManager.shared.saveUserInfo(userName: self.userName, userMbti: self.userMbti , userWakeUpTime: self.wakeUpTime, userSleepTime: self.sleepTime)
-        
-        mainVC.userName = UserDefaultsManager.shared.getUserName()
-        mainVC.userUid = UserDefaultsManager.shared.getUserUid()
-        mainVC.modalPresentationStyle = .overFullScreen
-        mainVC.modalTransitionStyle = .crossDissolve
-        present(mainVC, animated: true)
+        // 초기 설정인 경우
+        if myPageEditorMode == .new {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let mainVC = storyboard.instantiateViewController(withIdentifier: "MainVC") as! MainVC
+            
+            UserDefaultsManager.shared.saveUserInfo(userName: self.userName, userMbti: self.userMbti , userWakeUpTime: self.wakeUpTime, userSleepTime: self.sleepTime)
+            
+            mainVC.userName = UserDefaultsManager.shared.getUserName()
+            mainVC.userUid = UserDefaultsManager.shared.getUserUid()
+            mainVC.modalPresentationStyle = .overFullScreen
+            mainVC.modalTransitionStyle = .crossDissolve
+            present(mainVC, animated: true)
+        } else { // 마이 페이지에서 수정하는 경우
+            delegate?.passTimeData(wakeUpTime: wakeUpTimePicker.date, sleepTime: sleepTimePicker.date)
+            dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    private func editTimeTextFields() {
+        // 마이 페이지에서 기상/취침 시간을 수정하는 경우
+        if myPageEditorMode == .edit {
+            wakeUpTimeTextField.text = TimeManager.shared.dateToHourMinString(date: wakeUpTime!)
+            sleepTimeTextField.text = TimeManager.shared.dateToHourMinString(date: sleepTime!)
+            validateFinishButton()
+        }
     }
     
     // 유저가 화면을 터치했을 때 호출되는 메서드

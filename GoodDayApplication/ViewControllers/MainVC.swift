@@ -54,6 +54,9 @@ class MainVC: UIViewController {
         
         // AnimationView
         configureAnimationView()
+        
+        // NotificationCenter
+        configureNotificationCenter()
     }
     
     private func setUserNameLabel() {
@@ -106,6 +109,19 @@ class MainVC: UIViewController {
             
             floatingButtonVC.delegate = self
             present(floatingButtonVC, animated: false, completion: nil)
+        }
+    }
+    
+    private func configureNotificationCenter() {
+        let notificationName = Notification.Name("sendBoolData")
+        NotificationCenter.default.addObserver(self, selector: #selector(sendBoolData), name: notificationName, object: nil)
+    }
+    
+    @objc private func sendBoolData(notification: Notification) {
+        isShowFloating = notification.userInfo?["isShowFloating"] as? Bool ?? false
+        if !isShowFloating {
+            animationView.play(fromFrame: animationView.animation?.endFrame, toFrame: animationView.animation!.startFrame)
+            isShowFloating = true
         }
     }
 }

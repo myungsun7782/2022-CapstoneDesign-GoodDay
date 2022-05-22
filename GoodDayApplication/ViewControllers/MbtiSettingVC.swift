@@ -14,6 +14,9 @@ enum MbtiPosition: Int {
     case fourth = 3
 }
 
+protocol DelegateMbtiSettingVC: AnyObject {
+    func passMbtiData(mbti: String)
+}
 
 class MbtiSettingVC: UIViewController {
     // UIButton
@@ -52,7 +55,8 @@ class MbtiSettingVC: UIViewController {
     var mbti: String!
     var mbtiPosition: MbtiPosition?
     var mbtiTextFieldList: [UITextField] = []
-    
+    weak var delegate: DelegateMbtiSettingVC?
+    var myPageEditorMode: MyPageEditorMode = .new
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +69,7 @@ class MbtiSettingVC: UIViewController {
         
         // UITextField
         configureMbtiTextFields()
+        editMbtiTextFields()
         
         // UIPickerView
         configureMbtiPicker()
@@ -239,19 +244,37 @@ class MbtiSettingVC: UIViewController {
         return firstMbtiTextField.text! + secondMbtiTextField.text! + thirdMbtiTextField.text! + fourthMbtiTextField.text!
     }
     
+    private func editMbtiTextFields() {
+        // 사용자가 MBTI를 수정하는 경우
+        if myPageEditorMode == .edit {
+            firstMbtiTextField.text = String(mbti![mbti!.startIndex])
+            secondMbtiTextField.text = String(mbti![mbti!.index(mbti!.startIndex, offsetBy: 1)])
+            thirdMbtiTextField.text = String(mbti![mbti!.index(mbti!.startIndex, offsetBy: 2)])
+            fourthMbtiTextField.text = String(mbti![mbti!.index(mbti!.startIndex, offsetBy: 3)])
+            validateNextButton()
+        }
+    }
+    
     @IBAction func tapBackButton(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func tapNextButton(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "InitialSettingViews", bundle: nil)
-        let timeSettingVC = storyboard.instantiateViewController(withIdentifier: "TimeSettingVC") as! TimeSettingVC
-        
-        timeSettingVC.userName = userName
-        timeSettingVC.userMbti = combineMbti()
-        timeSettingVC.modalTransitionStyle = .crossDissolve
-        timeSettingVC.modalPresentationStyle = .overFullScreen
-        present(timeSettingVC, animated: true, completion: nil)
+        // 초기 설정의 경우
+        if myPageEditorMode == .new {
+            let storyboard = UIStoryboard(name: "InitialSettingViews", bundle: nil)
+            let timeSettingVC = storyboard.instantiateViewController(withIdentifier: "TimeSettingVC") as! TimeSettingVC
+            
+            timeSettingVC.userName = userName
+            timeSettingVC.userMbti = combineMbti()
+            timeSettingVC.modalTransitionStyle = .crossDissolve
+            timeSettingVC.modalPresentationStyle = .overFullScreen
+            present(timeSettingVC, animated: true, completion: nil)
+        } else { // 마이 페이지에서 수정하는 경우
+            mbti = combineMbti()
+            delegate?.passMbtiData(mbti: mbti)
+            dismiss(animated: true, completion: nil)
+        }
     }
     
     // 유저가 화면을 터치했을 때 호출되는 메서드
