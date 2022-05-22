@@ -19,6 +19,7 @@ class MainVC: UIViewController {
     @IBOutlet weak var missionTitleLabel: UILabel!
     @IBOutlet weak var missionFirstHashTagLabel: UILabel!
     @IBOutlet weak var missionSecondHashTagLabel: UILabel!
+    @IBOutlet weak var famousSayingLabel: UILabel!
     
     // UIButton
     @IBOutlet weak var missionNextButton: UIButton!
@@ -30,11 +31,11 @@ class MainVC: UIViewController {
     let rightArrowImg = UIImage(systemName: "arrow.right", withConfiguration: UIImage.SymbolConfiguration(pointSize: 24, weight: .semibold))
     let animationView = AnimationView(name: "30344-hamburger-close-animation")
     let ANIMATION_VIEW_SIZE: CGFloat = 32
+    let DEFAULT_FAMOUS_SAYING_TITLE = "잘 시작하는 것도 훌룡한 것이지만, 잘 끝내는 것은 더 훌룡한 일이다."
+    let FAMOUS_SAYING_LABEL_LINE_SPACING: CGFloat = 4
     var isShowFloating: Bool = true
     var userName: String!
     var userUid: String!
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +52,7 @@ class MainVC: UIViewController {
         
         // UILabel
         setUserNameLabel()
+        configureFamousSayingLabel()
         
         // AnimationView
         configureAnimationView()
@@ -123,6 +125,15 @@ class MainVC: UIViewController {
             animationView.play(fromFrame: animationView.animation?.endFrame, toFrame: animationView.animation!.startFrame)
             isShowFloating = true
         }
+    }
+    
+    private func configureFamousSayingLabel() {
+        famousSayingLabel.text = DEFAULT_FAMOUS_SAYING_TITLE
+        let attrString = NSMutableAttributedString(string: famousSayingLabel.text!)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = FAMOUS_SAYING_LABEL_LINE_SPACING
+        attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attrString.length))
+        famousSayingLabel.attributedText = attrString
     }
 }
 

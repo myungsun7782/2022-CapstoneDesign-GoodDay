@@ -255,6 +255,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="famousSayingLabel" destination="pK3-KZ-i7O" id="rEr-JW-8rQ"/>
                         <outlet property="famousSayingView" destination="r89-iW-DcE" id="Ajm-8O-8It"/>
                         <outlet property="missionDayLabel" destination="GO4-UL-tyW" id="pYL-CW-tRO"/>
                         <outlet property="missionFirstHashTagLabel" destination="NL8-4m-6Y4" id="wha-yN-sFE"/>
