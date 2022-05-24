@@ -14,4 +14,8 @@ target 'GoodDayApplication' do
   pod 'IQKeyboardManagerSwift'
   pod 'SwiftDate'
   pod 'SnapKit'
+  pod 'Alamofire'
+  pod 'SwiftyJSON'
+  pod 'BSImagePicker'
+  pod 'Hero'
 end

@@ -19,6 +19,18 @@ protocol DelegateMbtiSettingVC: AnyObject {
 }
 
 class MbtiSettingVC: UIViewController {
+    // Constant
+    let FONT_SIZE: CGFloat = 28
+    let MBTI_LIST_SIZE = 2
+    let MBTI_LIST = [
+        ["E", "I"],
+        ["S", "N"],
+        ["T", "F"],
+        ["J", "P"]
+    ]
+    let BUTTON_CORNER_RADIUS: CGFloat = 13
+    let BLACK_CG_COLOR: CGColor = UIColor.black.cgColor
+    
     // UIButton
     @IBOutlet weak var nextButton: UIButton!
     
@@ -41,22 +53,12 @@ class MbtiSettingVC: UIViewController {
     var toolbar: UIToolbar!
     
     // Variables
-    let FONT_SIZE: CGFloat = 28
-    let MBTI_LIST_SIZE = 2
-    let mbtiList = [
-        ["E", "I"],
-        ["S", "N"],
-        ["T", "F"],
-        ["J", "P"]
-    ]
-    let BUTTON_CORNER_RADIUS: CGFloat = 13
-    let BLACK_CG_COLOR: CGColor = UIColor.black.cgColor
     var userName: String!
-    var mbti: String!
     var mbtiPosition: MbtiPosition?
     var mbtiTextFieldList: [UITextField] = []
     weak var delegate: DelegateMbtiSettingVC?
     var myPageEditorMode: MyPageEditorMode = .new
+    var mbtiSettingVM = MbtiSettingVM()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -129,6 +131,8 @@ class MbtiSettingVC: UIViewController {
         let isEmpty = textField.text?.isEmpty
         if isEmpty! {
             textField.text = "E"
+        } else {
+            textField.text = "E"
         }
         mbtiPosition = .first
         firstMbtiTextField.inputView = firstMbtiPicker
@@ -139,6 +143,8 @@ class MbtiSettingVC: UIViewController {
     @objc private func beginSecondTextField(_ textField: UITextField) {
         let isEmpty = textField.text?.isEmpty
         if isEmpty! {
+            textField.text = "S"
+        } else {
             textField.text = "S"
         }
         mbtiPosition = .second
@@ -151,6 +157,8 @@ class MbtiSettingVC: UIViewController {
         let isEmpty = textField.text?.isEmpty
         if isEmpty! {
             textField.text = "T"
+        } else {
+            textField.text = "T"
         }
         mbtiPosition = .third
         thirdMbtiTextField.inputView = thirdMbtiPicker
@@ -161,6 +169,8 @@ class MbtiSettingVC: UIViewController {
     @objc private func beginFourthTextField(_ textField: UITextField){
         let isEmpty = textField.text?.isEmpty
         if isEmpty! {
+            textField.text = "J"
+        } else {
             textField.text = "J"
         }
         mbtiPosition = .fourth
@@ -244,14 +254,18 @@ class MbtiSettingVC: UIViewController {
         return firstMbtiTextField.text! + secondMbtiTextField.text! + thirdMbtiTextField.text! + fourthMbtiTextField.text!
     }
     
+    
     private func editMbtiTextFields() {
         // 사용자가 MBTI를 수정하는 경우
-        if myPageEditorMode == .edit {
-            firstMbtiTextField.text = String(mbti![mbti!.startIndex])
-            secondMbtiTextField.text = String(mbti![mbti!.index(mbti!.startIndex, offsetBy: 1)])
-            thirdMbtiTextField.text = String(mbti![mbti!.index(mbti!.startIndex, offsetBy: 2)])
-            fourthMbtiTextField.text = String(mbti![mbti!.index(mbti!.startIndex, offsetBy: 3)])
-            validateNextButton()
+        if let mbti = mbtiSettingVM.mbti {
+            if myPageEditorMode == .edit {
+                firstMbtiTextField.text = String(mbti[mbti.startIndex])
+                secondMbtiTextField.text = String(mbti[mbti.index(mbti.startIndex, offsetBy: 1)])
+                thirdMbtiTextField.text = String(mbti[mbti.index(mbti.startIndex, offsetBy: 2)])
+                fourthMbtiTextField.text = String(mbti[mbti.index(mbti.startIndex, offsetBy: 3)])
+                // TODO: 버튼 text "완료"로 바꾸기
+                validateNextButton()
+            }
         }
     }
     
@@ -265,15 +279,16 @@ class MbtiSettingVC: UIViewController {
             let storyboard = UIStoryboard(name: "InitialSettingViews", bundle: nil)
             let timeSettingVC = storyboard.instantiateViewController(withIdentifier: "TimeSettingVC") as! TimeSettingVC
             
-            timeSettingVC.userName = userName
-            timeSettingVC.userMbti = combineMbti()
+            timeSettingVC.timeSettingVM.userName = userName
+            timeSettingVC.timeSettingVM.userMbti = combineMbti()
             timeSettingVC.modalTransitionStyle = .crossDissolve
             timeSettingVC.modalPresentationStyle = .overFullScreen
             present(timeSettingVC, animated: true, completion: nil)
         } else { // 마이 페이지에서 수정하는 경우
-            mbti = combineMbti()
-            delegate?.passMbtiData(mbti: mbti)
-            dismiss(animated: true, completion: nil)
+            mbtiSettingVM.mbti = combineMbti()
+            mbtiSettingVM.modifyMbti()
+//            delegate?.passMbtiData(mbti: mbtiSettingVM.mbti)
+//            dismiss(animated: true, completion: nil)
         }
     }
     
@@ -300,13 +315,13 @@ extension MbtiSettingVC: UIPickerViewDelegate, UIPickerViewDataSource {
         var pickerTitle: String?
         switch mbtiPosition {
         case .first:
-            pickerTitle = (row == 0) ? (mbtiList[row][row] + " (외향형)") : (mbtiList[row-1][row] + " (내향형)")
+            pickerTitle = (row == 0) ? (MBTI_LIST[row][row] + " (외향형)") : (MBTI_LIST[row-1][row] + " (내향형)")
         case .second:
-            pickerTitle = (row == 0) ? (mbtiList[row+1][row] + " (감각형)") : (mbtiList[row][row] + " (직관형)")
+            pickerTitle = (row == 0) ? (MBTI_LIST[row+1][row] + " (감각형)") : (MBTI_LIST[row][row] + " (직관형)")
         case .third:
-            pickerTitle = (row == 0) ? (mbtiList[row+2][row] + " (사고형)") : (mbtiList[row+1][row] + " (감정형)")
+            pickerTitle = (row == 0) ? (MBTI_LIST[row+2][row] + " (사고형)") : (MBTI_LIST[row+1][row] + " (감정형)")
         case .fourth:
-            pickerTitle = (row == 0) ? (mbtiList[row+3][row] + " (판단형)") : (mbtiList[row+2][row] + " (인식형)")
+            pickerTitle = (row == 0) ? (MBTI_LIST[row+3][row] + " (판단형)") : (MBTI_LIST[row+2][row] + " (인식형)")
         default:
             break
         }
@@ -315,6 +330,6 @@ extension MbtiSettingVC: UIPickerViewDelegate, UIPickerViewDataSource {
     
     // pickerView에서 선택지 값이 선택된 후에 호출
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        mbtiTextFieldList[mbtiPosition!.rawValue].text = mbtiList[mbtiPosition!.rawValue][row]
+        mbtiTextFieldList[mbtiPosition!.rawValue].text = MBTI_LIST[mbtiPosition!.rawValue][row]
     }
 }

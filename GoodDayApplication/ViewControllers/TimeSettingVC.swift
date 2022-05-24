@@ -11,7 +11,14 @@ protocol DelegateTimeSettingVC: AnyObject {
     func passTimeData(wakeUpTime: Date, sleepTime: Date)
 }
 
+protocol SignUpDoneDelegate {
+    func signUpFinished()
+}
+
 class TimeSettingVC: UIViewController {
+    // Constant
+    let BUTTON_CORNER_RADIUS: CGFloat = 13
+
     // UITextField
     @IBOutlet weak var wakeUpTimeTextField: UITextField!
     @IBOutlet weak var sleepTimeTextField: UITextField!
@@ -24,18 +31,15 @@ class TimeSettingVC: UIViewController {
     var sleepTimePicker: UIDatePicker!
     
     // Variables
-    var userName: String!
-    var userMbti: String!
-    var wakeUpTime: Date!
-    var sleepTime: Date!
     var myPageEditorMode: MyPageEditorMode = .new
     weak var delegate: DelegateTimeSettingVC?
     let userUid = UUID().uuidString
-    let BUTTON_CORNER_RADIUS: CGFloat = 13
+    var timeSettingVM = TimeSettingVM()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initUI()
+        timeSettingVM.doneDelegate = self
     }
     
     private func initUI() {
@@ -91,13 +95,13 @@ class TimeSettingVC: UIViewController {
     }
     
     @objc func didWakeUpTimePickerValueChange(_ timePicker: UIDatePicker) {
-        wakeUpTime = wakeUpTimePicker.date
+        timeSettingVM.wakeUpTime = wakeUpTimePicker.date
         wakeUpTimeTextField.text = TimeManager.shared.dateToHourMinString(date: wakeUpTimePicker.date)
         wakeUpTimeTextField.sendActions(for: .editingChanged)
     }
     
     @objc func didSleepTimePickerValueChange(_ timePicker: UIDatePicker){
-        sleepTime = sleepTimePicker.date
+        timeSettingVM.sleepTime = sleepTimePicker.date
         sleepTimeTextField.text = TimeManager.shared.dateToHourMinString(date: sleepTimePicker.date)
         sleepTimeTextField.sendActions(for: .editingChanged)
     }
@@ -127,16 +131,7 @@ class TimeSettingVC: UIViewController {
     @IBAction func tapFinishButton(_ sender: UIButton) {
         // 초기 설정인 경우
         if myPageEditorMode == .new {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let mainVC = storyboard.instantiateViewController(withIdentifier: "MainVC") as! MainVC
-            
-            UserDefaultsManager.shared.saveUserInfo(userName: self.userName, userMbti: self.userMbti , userWakeUpTime: self.wakeUpTime, userSleepTime: self.sleepTime)
-            
-            mainVC.userName = UserDefaultsManager.shared.getUserName()
-            mainVC.userUid = UserDefaultsManager.shared.getUserUid()
-            mainVC.modalPresentationStyle = .overFullScreen
-            mainVC.modalTransitionStyle = .crossDissolve
-            present(mainVC, animated: true)
+            timeSettingVM.signUp()
         } else { // 마이 페이지에서 수정하는 경우
             delegate?.passTimeData(wakeUpTime: wakeUpTimePicker.date, sleepTime: sleepTimePicker.date)
             dismiss(animated: true, completion: nil)
@@ -146,8 +141,8 @@ class TimeSettingVC: UIViewController {
     private func editTimeTextFields() {
         // 마이 페이지에서 기상/취침 시간을 수정하는 경우
         if myPageEditorMode == .edit {
-            wakeUpTimeTextField.text = TimeManager.shared.dateToHourMinString(date: wakeUpTime!)
-            sleepTimeTextField.text = TimeManager.shared.dateToHourMinString(date: sleepTime!)
+            wakeUpTimeTextField.text = TimeManager.shared.dateToHourMinString(date: timeSettingVM.wakeUpTime!)
+            sleepTimeTextField.text = TimeManager.shared.dateToHourMinString(date: timeSettingVM.sleepTime!)
             validateFinishButton()
         }
     }
@@ -156,5 +151,20 @@ class TimeSettingVC: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         // 키보드를 내린다.
         self.view.endEditing(true)
+    }
+}
+
+// Delegate
+extension TimeSettingVC: SignUpDoneDelegate {
+    func signUpFinished() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let mainVC = storyboard.instantiateViewController(withIdentifier: "MainVC") as! MainVC
+
+        UserDefaultsManager.shared.saveUserInfo(userName: timeSettingVM.userName, userMbti: timeSettingVM.userMbti , userWakeUpTime: timeSettingVM.wakeUpTime, userSleepTime: timeSettingVM.sleepTime)
+
+        mainVC.userName = UserDefaultsManager.shared.getUserName()
+        mainVC.modalPresentationStyle = .overFullScreen
+        mainVC.modalTransitionStyle = .crossDissolve
+        present(mainVC, animated: true)
     }
 }

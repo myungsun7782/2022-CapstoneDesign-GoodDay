@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="PhotoCell" reuseIdentifier="PhotoCell" id="gTV-IL-0wX" customClass="PhotoCell" customModule="GoodDayApplication" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="367" height="216"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="367" height="216"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="emu-OY-sA0">
+                        <rect key="frame" x="5" y="5" width="357" height="206"/>
+                        <color key="backgroundColor" red="0.77777777777777779" green="0.77777777777777779" blue="0.77777777777777779" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ADA-Fe-0dg">
+                        <rect key="frame" x="342" y="0.0" width="25" height="25"/>
+                        <color key="backgroundColor" red="0.76862745098039209" green="0.76862745098039209" blue="0.76862745098039209" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="BMG-Wp-sHA"/>
+                            <constraint firstAttribute="width" constant="25" id="iWG-Kv-fPp"/>
+                        </constraints>
+                        <color key="tintColor" name="White"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" image="xmark" catalog="system"/>
+                    </button>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="emu-OY-sA0" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="11p-aK-tq9"/>
+                <constraint firstAttribute="bottom" secondItem="emu-OY-sA0" secondAttribute="bottom" constant="5" id="9Lc-zF-xla"/>
+                <constraint firstItem="ADA-Fe-0dg" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ixh-ff-Ldn"/>
+                <constraint firstItem="emu-OY-sA0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="wBl-AZ-7ek"/>
+                <constraint firstAttribute="trailing" secondItem="emu-OY-sA0" secondAttribute="trailing" constant="5" id="weh-c2-Jgb"/>
+                <constraint firstAttribute="trailing" secondItem="ADA-Fe-0dg" secondAttribute="trailing" id="zId-ih-p95"/>
+            </constraints>
+            <size key="customSize" width="367" height="216"/>
+            <connections>
+                <outlet property="deleteButton" destination="ADA-Fe-0dg" id="8jj-eu-YUJ"/>
+                <outlet property="photoImageView" destination="emu-OY-sA0" id="d96-Q1-7Mc"/>
+            </connections>
+            <point key="canvasLocation" x="280.43478260869568" y="108.48214285714285"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+        <namedColor name="White">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
