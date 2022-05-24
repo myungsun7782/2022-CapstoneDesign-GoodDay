@@ -89,6 +89,7 @@ class DiaryCalendarVC: UIViewController {
     }
     
     private func configureUnRegisteredDiaryView() {
+        unRegisteredDiaryView.alpha = 0
         unRegisteredDiaryView.backgroundColor = ColorManager.shared.getWhite()
         unRegisteredDiaryView.layer.cornerRadius = UNREGISTERED_DIARY_VIEW_RADIUS
         unRegisteredDiaryView.layer.shadowOpacity = UNREGISTERED_DIARY_VIEW_SHADOW_OPACITY
@@ -125,13 +126,21 @@ class DiaryCalendarVC: UIViewController {
         NotificationCenter.default.post(name: notificationName, object: nil, userInfo: boolDic)
         dismiss(animated: true, completion: nil)
     }
+    
+    private func animateUnRegisteredDiaryView() {
+        UIView.animate(withDuration: 0.5) {
+            self.unRegisteredDiaryView.alpha = 1
+        } completion: { (completion) in
+        }
+    }
 }
 
 extension DiaryCalendarVC: FSCalendarDelegate, FSCalendarDataSource {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         selectedDateStr = TimeManager.shared.dateToYearMonthDayString(date: date)
-        configureUnRegisteredDiaryView()
         unRegisteredDiaryView.dateLabel.text = selectedDateStr
+        configureUnRegisteredDiaryView()
+        animateUnRegisteredDiaryView()
     }
     
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
