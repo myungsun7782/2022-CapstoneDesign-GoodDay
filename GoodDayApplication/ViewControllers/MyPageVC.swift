@@ -154,7 +154,7 @@ class MyPageVC: UIViewController {
         
         mbtiSettingVC.delegate = self
         mbtiSettingVC.myPageEditorMode = .edit
-        mbtiSettingVC.mbti = mbtiEditLabel.text
+        mbtiSettingVC.mbtiSettingVM.mbti = mbtiEditLabel.text
         
         mbtiSettingVC.modalPresentationStyle = .overFullScreen
         mbtiSettingVC.modalTransitionStyle = .crossDissolve
@@ -167,8 +167,8 @@ class MyPageVC: UIViewController {
         
         timeSettingVC.delegate = self
         timeSettingVC.myPageEditorMode = .edit
-        timeSettingVC.wakeUpTime = UserDefaultsManager.shared.getWakeUpTime()
-        timeSettingVC.sleepTime = UserDefaultsManager.shared.getSleepTime()
+        timeSettingVC.timeSettingVM.wakeUpTime = UserDefaultsManager.shared.getWakeUpTime()
+        timeSettingVC.timeSettingVM.sleepTime = UserDefaultsManager.shared.getSleepTime()
         
         timeSettingVC.modalPresentationStyle = .overFullScreen
         timeSettingVC.modalTransitionStyle = .crossDissolve

@@ -10,6 +10,16 @@
 		D79895FC5F2CED713E1E9F90 /* Pods_GoodDayApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24070A916A4B108EE1D80DE9 /* Pods_GoodDayApplication.framework */; };
 		F0011A75283639E9002346AA /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0011A74283639E9002346AA /* MyPageVC.swift */; };
 		F0011A7728363A79002346AA /* MyPageView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0011A7628363A79002346AA /* MyPageView.storyboard */; };
+		F033B38E283B83C200BBDC9D /* MbtiSettingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033B38D283B83C200BBDC9D /* MbtiSettingVM.swift */; };
+		F033B390283BAEC900BBDC9D /* UnRegisteredDiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033B38F283BAEC900BBDC9D /* UnRegisteredDiaryView.swift */; };
+		F03894EF283A0972007205F6 /* TimeSettingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03894EE283A0972007205F6 /* TimeSettingVM.swift */; };
+		F0726764283B2EFE00DC835B /* DiaryViews.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0726763283B2EFE00DC835B /* DiaryViews.storyboard */; };
+		F0726766283B2F2C00DC835B /* DiaryCalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0726765283B2F2C00DC835B /* DiaryCalendarVC.swift */; };
+		F0726768283B2F3D00DC835B /* DiaryDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0726767283B2F3D00DC835B /* DiaryDetailVC.swift */; };
+		F072676C283B347400DC835B /* AddPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F072676A283B347400DC835B /* AddPhotoCell.swift */; };
+		F072676D283B347400DC835B /* AddPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F072676B283B347400DC835B /* AddPhotoCell.xib */; };
+		F0726770283B35CD00DC835B /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F072676E283B35CD00DC835B /* PhotoCell.swift */; };
+		F0726771283B35CD00DC835B /* PhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F072676F283B35CD00DC835B /* PhotoCell.xib */; };
 		F093BD8B282B8B95004DBB62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F093BD8A282B8B95004DBB62 /* AppDelegate.swift */; };
 		F093BD8D282B8B95004DBB62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F093BD8C282B8B95004DBB62 /* SceneDelegate.swift */; };
 		F093BD8F282B8B95004DBB62 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F093BD8E282B8B95004DBB62 /* MainVC.swift */; };
@@ -44,6 +54,16 @@
 		E1880FC3D8E20985EF742C89 /* Pods-GoodDayApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoodDayApplication.release.xcconfig"; path = "Target Support Files/Pods-GoodDayApplication/Pods-GoodDayApplication.release.xcconfig"; sourceTree = "<group>"; };
 		F0011A74283639E9002346AA /* MyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
 		F0011A7628363A79002346AA /* MyPageView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPageView.storyboard; sourceTree = "<group>"; };
+		F033B38D283B83C200BBDC9D /* MbtiSettingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MbtiSettingVM.swift; sourceTree = "<group>"; };
+		F033B38F283BAEC900BBDC9D /* UnRegisteredDiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnRegisteredDiaryView.swift; sourceTree = "<group>"; };
+		F03894EE283A0972007205F6 /* TimeSettingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSettingVM.swift; sourceTree = "<group>"; };
+		F0726763283B2EFE00DC835B /* DiaryViews.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DiaryViews.storyboard; sourceTree = "<group>"; };
+		F0726765283B2F2C00DC835B /* DiaryCalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryCalendarVC.swift; sourceTree = "<group>"; };
+		F0726767283B2F3D00DC835B /* DiaryDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDetailVC.swift; sourceTree = "<group>"; };
+		F072676A283B347400DC835B /* AddPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoCell.swift; sourceTree = "<group>"; };
+		F072676B283B347400DC835B /* AddPhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPhotoCell.xib; sourceTree = "<group>"; };
+		F072676E283B35CD00DC835B /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		F072676F283B35CD00DC835B /* PhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCell.xib; sourceTree = "<group>"; };
 		F093BD87282B8B95004DBB62 /* GoodDayApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodDayApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F093BD8A282B8B95004DBB62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F093BD8C282B8B95004DBB62 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +123,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F03894EC283A091D007205F6 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F03894EE283A0972007205F6 /* TimeSettingVM.swift */,
+				F033B38D283B83C200BBDC9D /* MbtiSettingVM.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F0726769283B343E00DC835B /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				F072676A283B347400DC835B /* AddPhotoCell.swift */,
+				F072676B283B347400DC835B /* AddPhotoCell.xib */,
+				F072676E283B35CD00DC835B /* PhotoCell.swift */,
+				F072676F283B35CD00DC835B /* PhotoCell.xib */,
+			);
+			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
 		F093BD7E282B8B95004DBB62 = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +164,8 @@
 		F093BD89282B8B95004DBB62 /* GoodDayApplication */ = {
 			isa = PBXGroup;
 			children = (
+				F0726769283B343E00DC835B /* CollectionViewCells */,
+				F03894EC283A091D007205F6 /* ViewModels */,
 				F093BDBD282B9B0C004DBB62 /* Views */,
 				F093BDBC282B9AF9004DBB62 /* Managers */,
 				F093BDBB282B9AE5004DBB62 /* ViewControllers */,
@@ -163,6 +205,8 @@
 				F093BDC4282B9C40004DBB62 /* TimeSettingVC.swift */,
 				F0EF5EB32834DCED00B2C80D /* FloatingButtonVC.swift */,
 				F0011A74283639E9002346AA /* MyPageVC.swift */,
+				F0726765283B2F2C00DC835B /* DiaryCalendarVC.swift */,
+				F0726767283B2F3D00DC835B /* DiaryDetailVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -185,6 +229,8 @@
 				F093BD95282B8B96004DBB62 /* LaunchScreen.storyboard */,
 				F093BDA0282B96A6004DBB62 /* InitialSettingViews.storyboard */,
 				F0011A7628363A79002346AA /* MyPageView.storyboard */,
+				F0726763283B2EFE00DC835B /* DiaryViews.storyboard */,
+				F033B38F283BAEC900BBDC9D /* UnRegisteredDiaryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -252,14 +298,17 @@
 				F0C98C252834C42500298795 /* 30344-hamburger-close-animation.json in Resources */,
 				F093BD97282B8B96004DBB62 /* LaunchScreen.storyboard in Resources */,
 				F093BDB8282B9A3F004DBB62 /* NanumSquareOTF_acR.otf in Resources */,
+				F0726764283B2EFE00DC835B /* DiaryViews.storyboard in Resources */,
 				F093BDA1282B96A6004DBB62 /* InitialSettingViews.storyboard in Resources */,
 				F093BDB4282B9A3F004DBB62 /* NanumSquareL.otf in Resources */,
+				F0726771283B35CD00DC835B /* PhotoCell.xib in Resources */,
 				F093BDBA282B9A3F004DBB62 /* NanumSquareB.otf in Resources */,
 				F093BDB6282B9A3F004DBB62 /* NanumSquareOTF_acL.otf in Resources */,
 				F093BD9F282B8F50004DBB62 /* GoogleService-Info.plist in Resources */,
 				F093BD94282B8B96004DBB62 /* Assets.xcassets in Resources */,
 				F093BDB9282B9A3F004DBB62 /* NanumSquareOTF_acB.otf in Resources */,
 				F093BD92282B8B95004DBB62 /* Main.storyboard in Resources */,
+				F072676D283B347400DC835B /* AddPhotoCell.xib in Resources */,
 				F093BDB7282B9A3F004DBB62 /* NanumSquareR.otf in Resources */,
 				F0011A7728363A79002346AA /* MyPageView.storyboard in Resources */,
 				F093BDB3282B9A3F004DBB62 /* NanumSquareOTF_acEB.otf in Resources */,
@@ -319,11 +368,18 @@
 				F093BD8F282B8B95004DBB62 /* MainVC.swift in Sources */,
 				F093BDC3282B9C08004DBB62 /* MbtiSettingVC.swift in Sources */,
 				F0011A75283639E9002346AA /* MyPageVC.swift in Sources */,
+				F033B390283BAEC900BBDC9D /* UnRegisteredDiaryView.swift in Sources */,
+				F0726768283B2F3D00DC835B /* DiaryDetailVC.swift in Sources */,
 				F0EF5EB42834DCED00B2C80D /* FloatingButtonVC.swift in Sources */,
 				F093BDA5282B99E4004DBB62 /* UserDefaultsManager.swift in Sources */,
+				F033B38E283B83C200BBDC9D /* MbtiSettingVM.swift in Sources */,
+				F072676C283B347400DC835B /* AddPhotoCell.swift in Sources */,
 				F093BDA9282B9A25004DBB62 /* FontManager.swift in Sources */,
 				F093BDC5282B9C40004DBB62 /* TimeSettingVC.swift in Sources */,
 				F093BDC1282B9BF0004DBB62 /* NameSettingVC.swift in Sources */,
+				F0726770283B35CD00DC835B /* PhotoCell.swift in Sources */,
+				F03894EF283A0972007205F6 /* TimeSettingVM.swift in Sources */,
+				F0726766283B2F2C00DC835B /* DiaryCalendarVC.swift in Sources */,
 				F093BDA7282B9A04004DBB62 /* TimeManager.swift in Sources */,
 				F093BD8B282B8B95004DBB62 /* AppDelegate.swift in Sources */,
 				F093BD8D282B8B95004DBB62 /* SceneDelegate.swift in Sources */,

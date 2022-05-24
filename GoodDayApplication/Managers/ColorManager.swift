@@ -27,4 +27,16 @@ class ColorManager {
     func getTimeTextFieldColor() -> UIColor {
         return UIColor(named: "TimeTextFieldColor")!
     }
+    
+    func getCalendarWeekDayTextColor() -> UIColor {
+        return UIColor(named: "CalendarWeekDayTextColor")!
+    }
+    
+    func getCalendarTitlePlaceHolderColor() -> UIColor {
+        return UIColor(named: "CalendarTitlePlaceHolderColor")!
+    }
+    
+    func getPointViewColor() -> UIColor {
+        return UIColor(named: "PointViewColor")!
+    }
 }

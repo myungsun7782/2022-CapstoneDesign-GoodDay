@@ -41,12 +41,11 @@ class UserDefaultsManager {
         }
     }
     
-    func getUserUid() -> String {
-        return UserDefaults.standard.string(forKey: USER_UID)!
+    func getUserUid() -> Int {
+        return UserDefaults.standard.integer(forKey: USER_UID)
     }
     
-    func setUserUid() {
-        let userUid = UUID().uuidString
+    func setUserUid(userUid: Int) {
         UserDefaults.standard.set(userUid, forKey: USER_UID)
     }
     
@@ -94,8 +93,7 @@ class UserDefaultsManager {
     }
     
     func saveUserInfo(userName: String, userMbti: String ,userWakeUpTime: Date, userSleepTime: Date) {
-//        setIsInitialized()
-        setUserUid()
+        setIsInitialized()
         setBeginDay()
         setUserName(name: userName)
         setMbti(mbti: userMbti)
