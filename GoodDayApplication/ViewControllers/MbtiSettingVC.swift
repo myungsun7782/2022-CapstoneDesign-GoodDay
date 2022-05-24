@@ -84,6 +84,10 @@ class MbtiSettingVC: UIViewController {
     }
     
     private func configureNextButton() {
+        if myPageEditorMode == .new {
+            nextButton.setTitle("다음", for: .normal)
+            nextButton.titleLabel!.font = FontManager.shared.getNanumSquareEB(fontSize: 20)
+        }
         validateNextButton()
         nextButton.layer.cornerRadius = BUTTON_CORNER_RADIUS
     }
@@ -263,7 +267,8 @@ class MbtiSettingVC: UIViewController {
                 secondMbtiTextField.text = String(mbti[mbti.index(mbti.startIndex, offsetBy: 1)])
                 thirdMbtiTextField.text = String(mbti[mbti.index(mbti.startIndex, offsetBy: 2)])
                 fourthMbtiTextField.text = String(mbti[mbti.index(mbti.startIndex, offsetBy: 3)])
-                // TODO: 버튼 text "완료"로 바꾸기
+                nextButton.setTitle("완료", for: .normal)
+                nextButton.titleLabel!.font = FontManager.shared.getNanumSquareEB(fontSize: 20)
                 validateNextButton()
             }
         }
@@ -286,9 +291,10 @@ class MbtiSettingVC: UIViewController {
             present(timeSettingVC, animated: true, completion: nil)
         } else { // 마이 페이지에서 수정하는 경우
             mbtiSettingVM.mbti = combineMbti()
-            mbtiSettingVM.modifyMbti()
-//            delegate?.passMbtiData(mbti: mbtiSettingVM.mbti)
-//            dismiss(animated: true, completion: nil)
+            //서버 통신 코드
+            // mbtiSettingVM.modifyMbti()
+            delegate?.passMbtiData(mbti: mbtiSettingVM.mbti)
+            dismiss(animated: true, completion: nil)
         }
     }
     

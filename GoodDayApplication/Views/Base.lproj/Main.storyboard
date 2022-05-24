@@ -105,13 +105,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="edz-UN-aYN">
                                 <rect key="frame" x="36" y="482.5" width="293" height="112"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="aQ3-Ep-RRg">
-                                        <rect key="frame" x="23" y="20" width="123.5" height="44"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="aQ3-Ep-RRg">
+                                        <rect key="frame" x="23" y="20" width="120.5" height="49"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GO4-UL-tyW">
-                                                <rect key="frame" x="0.0" y="0.0" width="123.5" height="14"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="120.5" height="14"/>
                                                 <attributedString key="attributedText">
-                                                    <fragment content="DAY DATA">
+                                                    <fragment content="DAY 1">
                                                         <attributes>
                                                             <font key="NSFont" size="12" name="NanumSquareOTFB"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -121,9 +121,9 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TkE-11-lyf">
-                                                <rect key="frame" x="0.0" y="18" width="123.5" height="26"/>
+                                                <rect key="frame" x="0.0" y="23" width="120.5" height="26"/>
                                                 <attributedString key="attributedText">
-                                                    <fragment content="Mission Title">
+                                                    <fragment content="바쁘게 일하기">
                                                         <attributes>
                                                             <font key="NSFont" size="22" name="NanumSquareOTFB"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -135,12 +135,12 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pbw-Gm-LIb">
-                                        <rect key="frame" x="23" y="73" width="129" height="14"/>
+                                        <rect key="frame" x="23" y="78" width="94.5" height="14"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NL8-4m-6Y4">
-                                                <rect key="frame" x="0.0" y="0.0" width="60.5" height="14"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="38" height="14"/>
                                                 <attributedString key="attributedText">
-                                                    <fragment content="#HashTag1">
+                                                    <fragment content="#바쁘게">
                                                         <attributes>
                                                             <color key="NSColor" red="0.6705882352941176" green="0.6705882352941176" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <font key="NSFont" size="12" name="NanumSquareOTFB"/>
@@ -151,9 +151,9 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRr-BA-fhx">
-                                                <rect key="frame" x="68.5" y="0.0" width="60.5" height="14"/>
+                                                <rect key="frame" x="46" y="0.0" width="48.5" height="14"/>
                                                 <attributedString key="attributedText">
-                                                    <fragment content="#HashTag2">
+                                                    <fragment content="#집중해서">
                                                         <attributes>
                                                             <color key="NSColor" red="0.6705882352941176" green="0.6705882352941176" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <font key="NSFont" size="12" name="NanumSquareOTFB"/>

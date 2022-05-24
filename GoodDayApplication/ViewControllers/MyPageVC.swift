@@ -108,6 +108,7 @@ class MyPageVC: UIViewController {
             updateTimeLabel.text = TimeManager.shared.dateToHourMinString(date: UserDefaultsManager.shared.getBeginDay())
         } else {
             if let updateTime = UserDefaultsManager.shared.getUpdateTime() {
+                print("Update Time Log")
                 updateTimeLabel.text = TimeManager.shared.dateToHourMinString(date: updateTime)
             }
         }
@@ -136,7 +137,9 @@ class MyPageVC: UIViewController {
     
     private func updateTime() {
         UserDefaultsManager.shared.setUpdateTime()
+//        updateTimeLabel.text = TimeManager.shared.dateToHourMinString(date: UserDefaultsManager.shared.getUpdateTime())
         if let updateTime = UserDefaultsManager.shared.getUpdateTime() {
+            print("Update Time Log")
             updateTimeLabel.text = TimeManager.shared.dateToHourMinString(date: updateTime)
         }
     }

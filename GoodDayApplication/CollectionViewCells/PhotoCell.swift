@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Hero
 
 class PhotoCell: UICollectionViewCell {
     // UIImageView
@@ -21,7 +22,8 @@ class PhotoCell: UICollectionViewCell {
         
         // UIButton
         deleteButton.layer.cornerRadius = deleteButton.frame.height / 2
+        
+//        self.hero.isEnabled = true
+//        self.hero.modifiers = [.fade, .scale(0.5)]
     }
-    
-    
 }

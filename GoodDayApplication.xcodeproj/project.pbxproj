@@ -44,6 +44,7 @@
 		F093BDC1282B9BF0004DBB62 /* NameSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F093BDC0282B9BF0004DBB62 /* NameSettingVC.swift */; };
 		F093BDC3282B9C08004DBB62 /* MbtiSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F093BDC2282B9C08004DBB62 /* MbtiSettingVC.swift */; };
 		F093BDC5282B9C40004DBB62 /* TimeSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F093BDC4282B9C40004DBB62 /* TimeSettingVC.swift */; };
+		F0A035E2283C89350016EC39 /* DetailImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A035E1283C89350016EC39 /* DetailImageVC.swift */; };
 		F0C98C252834C42500298795 /* 30344-hamburger-close-animation.json in Resources */ = {isa = PBXBuildFile; fileRef = F0C98C242834C42500298795 /* 30344-hamburger-close-animation.json */; };
 		F0EF5EB42834DCED00B2C80D /* FloatingButtonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EF5EB32834DCED00B2C80D /* FloatingButtonVC.swift */; };
 /* End PBXBuildFile section */
@@ -90,6 +91,7 @@
 		F093BDC0282B9BF0004DBB62 /* NameSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameSettingVC.swift; sourceTree = "<group>"; };
 		F093BDC2282B9C08004DBB62 /* MbtiSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MbtiSettingVC.swift; sourceTree = "<group>"; };
 		F093BDC4282B9C40004DBB62 /* TimeSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSettingVC.swift; sourceTree = "<group>"; };
+		F0A035E1283C89350016EC39 /* DetailImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailImageVC.swift; sourceTree = "<group>"; };
 		F0C98C242834C42500298795 /* 30344-hamburger-close-animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "30344-hamburger-close-animation.json"; sourceTree = "<group>"; };
 		F0EF5EB32834DCED00B2C80D /* FloatingButtonVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButtonVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -207,6 +209,7 @@
 				F0011A74283639E9002346AA /* MyPageVC.swift */,
 				F0726765283B2F2C00DC835B /* DiaryCalendarVC.swift */,
 				F0726767283B2F3D00DC835B /* DiaryDetailVC.swift */,
+				F0A035E1283C89350016EC39 /* DetailImageVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				F033B38E283B83C200BBDC9D /* MbtiSettingVM.swift in Sources */,
 				F072676C283B347400DC835B /* AddPhotoCell.swift in Sources */,
 				F093BDA9282B9A25004DBB62 /* FontManager.swift in Sources */,
+				F0A035E2283C89350016EC39 /* DetailImageVC.swift in Sources */,
 				F093BDC5282B9C40004DBB62 /* TimeSettingVC.swift in Sources */,
 				F093BDC1282B9BF0004DBB62 /* NameSettingVC.swift in Sources */,
 				F0726770283B35CD00DC835B /* PhotoCell.swift in Sources */,

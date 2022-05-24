@@ -88,8 +88,7 @@ class UserDefaultsManager {
     
     func setUpdateTime() {
         let currentTime = Date()
-        let currentUpdateTime = TimeManager.shared.dateToHourMinString(date: currentTime)
-        UserDefaults.standard.set(currentUpdateTime, forKey: UPDATE_TIME)
+        UserDefaults.standard.set(currentTime, forKey: UPDATE_TIME)
     }
     
     func saveUserInfo(userName: String, userMbti: String ,userWakeUpTime: Date, userSleepTime: Date) {

@@ -4,20 +4,61 @@
 //
 //  Created by myungsun on 2022/05/23.
 //
+/**
+ // Hero Library Code
+ //        // UIView
+ //        testView.hero.id = "testView"
+ //        testView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapTestView)))
+ 
+ //    @objc private func tapTestView() {
+ //        let vc = UIStoryboard(name: "DiaryViews", bundle: nil).instantiateViewController(withIdentifier: "DetailImageVC") as! DetailImageVC
+ //        vc.modalTransitionStyle = .crossDissolve
+ //        vc.modalPresentationStyle = .overFullScreen
+ //        vc.hero.isEnabled = true
+ //        self.present(vc, animated: true)
+ //    }
+ 
+ //     self.hero.isEnabled = true
+ //     photoCollectionView.hero.modifiers = [.cascade]
+ **/
 
 import UIKit
 import BSImagePicker
 import Photos
+import Hero
 
 class DiaryDetailVC: UIViewController {
     // Constant
     let NUM_PHOTO_MAX = 5
+    let TEXTFIELD_BODER_WIDTH: CGFloat = 1.0
+    let TEXTFIELD_BORDER_RADIUS: CGFloat = 7
+    let BUTTON_BORDER_RADIUS: CGFloat = 7
+    let BUTTON_FONT_SIZE: CGFloat = 20
+    let CONTENTS_PLACE_HOLDER = "내용을 입력하세요."
     
     // UICollectionView
     @IBOutlet weak var photoCollectionView: UICollectionView!
-
+    
+    // UILabel
+    @IBOutlet weak var diaryDateLabel: UILabel!
+    
+    // UIButton
+    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var finishButton: UIButton!
+    
+    // UITextField
+    @IBOutlet weak var titleTextField: UITextField!
+    
+    // UITextView
+    @IBOutlet weak var contentsTextView: UITextView!
+    
+    // UIView
+    @IBOutlet weak var pointView: UIView!
+    
     // Variable
     var photoList = Array<UIImage>()
+    var diaryEditorMode: DiaryEditorMode?
+    var diaryDateStr: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,10 +71,118 @@ class DiaryDetailVC: UIViewController {
         photoCollectionView.dataSource = self
         photoCollectionView.register(UINib(nibName: "AddPhotoCell", bundle: nil), forCellWithReuseIdentifier: "AddPhotoCell")
         photoCollectionView.register(UINib(nibName: "PhotoCell", bundle: nil), forCellWithReuseIdentifier: "PhotoCell")
+        
+        // UIView
+        configurePointView()
+        
+        // UITextView()
+        configureContentsTextView()
+        
+        // UILabel
+        configureDiaryDateLabel()
+        
+        // UITextField
+        configureTitleTextField()
+        
+        // UIButton
+        configureDiaryDeleteButton()
+        configureFinishButton()
+        validateInputField()
+    }
+    
+    private func configurePointView() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.pointView.bounds
+        let colors: [CGColor] = [
+            ColorManager.shared.getThemeMain().cgColor,
+            ColorManager.shared.getPointViewColor().cgColor]
+        
+        gradientLayer.colors = colors
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
+        gradientLayer.cornerRadius = self.pointView.frame.width / 2
+        
+        pointView.layer.addSublayer(gradientLayer)
+        pointView.layer.cornerRadius = pointView.frame.width / 2
+    }
+    
+    private func configureContentsTextView() {
+        contentsTextView.layer.borderWidth = TEXTFIELD_BODER_WIDTH
+        contentsTextView.layer.borderColor = ColorManager.shared.getContentsTextFieldColor().cgColor
+        contentsTextView.layer.cornerRadius = TEXTFIELD_BORDER_RADIUS
+        contentsTextView.textContainerInset = UIEdgeInsets(top: 16, left: 8, bottom: 8, right: 8)
+        contentsTextView.font = FontManager.shared.getNanumSquareR(fontSize: 15)
+        
+        if diaryEditorMode == .new {
+            self.contentsTextView.text = "내용을 입력하세요."
+            self.contentsTextView.textColor = ColorManager.shared.getContentsTextFieldColor()
+        }
+        contentsTextView.delegate = self
+    }
+    
+    private func configureDiaryDateLabel() {
+        diaryDateLabel.text = diaryDateStr
+    }
+    
+    private func configureTitleTextField() {
+        let leftPadding = UIView(frame: CGRect(x: 0, y: 0, width: 8, height: titleTextField.frame.height))
+        
+        titleTextField.layer.borderWidth = TEXTFIELD_BODER_WIDTH
+        titleTextField.layer.borderColor = ColorManager.shared.getContentsTextFieldColor().cgColor
+        titleTextField.layer.cornerRadius = TEXTFIELD_BORDER_RADIUS
+        titleTextField.leftView = leftPadding
+        titleTextField.leftViewMode = UITextField.ViewMode.always
+        titleTextField.font = FontManager.shared.getNanumSquareR(fontSize: 15)
+        
+        titleTextField.addTarget(self, action: #selector(DidTitleTextFiledChange(_:)), for: .editingChanged)
+    }
+    
+    @objc private func DidTitleTextFiledChange(_ textField: UITextField) {
+        validateInputField()
+    }
+    
+    private func configureDiaryDeleteButton() {
+        if diaryEditorMode == .new {
+            deleteButton.layer.isHidden = true
+        }else if diaryEditorMode == .edit {
+            deleteButton.layer.isHidden = false
+        }
+    }
+    
+    private func configureFinishButton(){
+        finishButton.setTitle("완료", for: .normal)
+        finishButton.backgroundColor = ColorManager.shared.getThemeMain()
+        finishButton.titleLabel?.font = FontManager.shared.getNanumSquareB(fontSize: BUTTON_FONT_SIZE)
+        finishButton.titleLabel?.textColor = ColorManager.shared.getWhite()
+        finishButton.layer.cornerRadius = BUTTON_BORDER_RADIUS
+        constrainFinishButton()
+    }
+    
+    private func constrainFinishButton() {
+        finishButton.translatesAutoresizingMaskIntoConstraints = false
+        finishButton.widthAnchor.constraint(equalToConstant: 348).isActive = true
+        finishButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+    }
+    
+    private func validateInputField() {
+        finishButton.isEnabled = !(titleTextField.text?.isEmpty ?? true) && !(contentsTextView.text.isEmpty) && (contentsTextView.text != CONTENTS_PLACE_HOLDER)
+        
+        if finishButton.isEnabled {
+            finishButton.backgroundColor = ColorManager.shared.getThemeMain()
+            finishButton.titleLabel?.font = FontManager.shared.getNanumSquareB(fontSize: BUTTON_FONT_SIZE)
+        }else {
+            finishButton.backgroundColor = ColorManager.shared.getDisableColor()
+            finishButton.titleLabel?.font = FontManager.shared.getNanumSquareB(fontSize: BUTTON_FONT_SIZE)
+        }
     }
     
     @IBAction func tapBackButton(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    // 유저가 화면을 터치하면 호출되는 메서드
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }
 
@@ -56,6 +205,7 @@ extension DiaryDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, U
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddPhotoCell", for: indexPath) as! AddPhotoCell
             return cell
         }
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! PhotoCell
         cell.photoImageView.image = photoList[indexPath.row]
         cell.deleteButton.tag = indexPath.row
@@ -67,6 +217,10 @@ extension DiaryDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, U
         let index = button.tag
         photoList.remove(at: index)
         photoCollectionView.reloadData()
+    }
+    
+    @objc private func tapPhotoImageView(view: UIView) {
+
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -108,8 +262,14 @@ extension DiaryDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, U
                 }
                 self.photoCollectionView.reloadData()
             })
-        } else {
+        } else { // 사진 목록 section
+            let DetailImageVC = UIStoryboard(name: "DiaryViews", bundle: nil).instantiateViewController(withIdentifier: "DetailImageVC") as! DetailImageVC
             
+            DetailImageVC.detailImage = photoList[indexPath.row]
+            DetailImageVC.modalTransitionStyle = .crossDissolve
+            DetailImageVC.modalPresentationStyle = .overFullScreen
+            DetailImageVC.hero.isEnabled = true
+            self.present(DetailImageVC, animated: true)
         }
     }
     
@@ -125,5 +285,26 @@ extension DiaryDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, U
             thumbnail = result!
         })
         return thumbnail
+    }
+}
+
+// UITextView
+extension DiaryDetailVC: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == CONTENTS_PLACE_HOLDER {
+            textView.text = nil
+            textView.textColor = .black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            textView.text = CONTENTS_PLACE_HOLDER
+            textView.textColor = ColorManager.shared.getContentsTextFieldColor()
+        }
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        validateInputField()
     }
 }

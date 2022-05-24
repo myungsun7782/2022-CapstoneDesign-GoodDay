@@ -21,6 +21,11 @@
 import UIKit
 import FSCalendar
 
+enum DiaryEditorMode {
+    case new
+    case edit
+}
+
 class DiaryCalendarVC: UIViewController {
     // Constant
     let CALENDAR_HEADER_DATE_FORMAT = "MMMM  yyyy"
@@ -107,6 +112,8 @@ class DiaryCalendarVC: UIViewController {
         let storyboard = UIStoryboard(name: "DiaryViews", bundle: nil)
         let diaryDetailVC = storyboard.instantiateViewController(withIdentifier: "DiaryDetailVC") as! DiaryDetailVC
 
+        diaryDetailVC.diaryEditorMode = .new
+        diaryDetailVC.diaryDateStr = unRegisteredDiaryView.dateLabel.text
         diaryDetailVC.modalPresentationStyle = .overFullScreen
         diaryDetailVC.modalTransitionStyle = .crossDissolve
         present(diaryDetailVC, animated: true, completion: nil)

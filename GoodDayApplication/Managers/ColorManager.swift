@@ -39,4 +39,8 @@ class ColorManager {
     func getPointViewColor() -> UIColor {
         return UIColor(named: "PointViewColor")!
     }
+    
+    func getContentsTextFieldColor() -> UIColor {
+        return UIColor(named: "ContentsTextFieldColor")!
+    }
 }
