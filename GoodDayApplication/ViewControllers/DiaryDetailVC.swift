@@ -27,6 +27,12 @@ import BSImagePicker
 import Photos
 import Hero
 
+protocol DelegateDiaryDetailVC: AnyObject {
+    func passDiaryData(date: String, title: String, contents: String, photoList: [UIImage])
+    
+//    func passModifiedDiaryDate(date: String, title: String, contents: String, photoList: [UIImage])
+}
+
 class DiaryDetailVC: UIViewController {
     // Constant
     let NUM_PHOTO_MAX = 5
@@ -59,6 +65,7 @@ class DiaryDetailVC: UIViewController {
     var photoList = Array<UIImage>()
     var diaryEditorMode: DiaryEditorMode?
     var diaryDateStr: String!
+    var diaryDelegate: DelegateDiaryDetailVC?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -178,6 +185,22 @@ class DiaryDetailVC: UIViewController {
     
     @IBAction func tapBackButton(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func tapFinishButton(_ sender: UIButton) {
+        if diaryEditorMode == .new {
+            guard let date = diaryDateLabel.text else { return }
+            guard let title = titleTextField.text else { return }
+            guard let contents = contentsTextView.text else { return }
+            
+            diaryDelegate?.passDiaryData(date: date, title: title, contents: contents, photoList: photoList)
+        } else if diaryEditorMode == .edit {
+            guard let date = diaryDateLabel.text else { return }
+            guard let title = titleTextField.text else { return }
+            guard let contents = contentsTextView.text else { return }
+            
+        }
+        dismiss(animated: true)
     }
     
     // 유저가 화면을 터치하면 호출되는 메서드

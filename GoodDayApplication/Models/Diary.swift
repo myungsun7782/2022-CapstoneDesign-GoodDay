@@ -13,4 +13,11 @@ class Diary {
     var contents: String!
     var date: String!
     var photoList: [UIImage]!
+    
+    init(title: String, contents: String, date: String, photoList: [UIImage]) {
+        self.title = title
+        self.contents = contents
+        self.date = date
+        self.photoList = photoList
+    }
 }
