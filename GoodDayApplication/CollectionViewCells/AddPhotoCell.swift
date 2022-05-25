@@ -10,7 +10,7 @@ import UIKit
 class AddPhotoCell: UICollectionViewCell {
     // Constants
     let VIEW_CORNER_RADIUS: CGFloat = 15
-    let VIEW_BORDER_WIDTH: CGFloat = 1
+    let VIEW_BORDER_WIDTH: CGFloat = 0.5
     
     // UIView
     @IBOutlet weak var containerView: UIView!

@@ -21,16 +21,16 @@
                         <rect key="frame" x="5" y="5" width="308" height="222"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="mWQ-0W-qxL">
-                                <rect key="frame" x="30" y="30.5" width="248" height="160"/>
+                                <rect key="frame" x="35" y="35.5" width="238" height="150"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.8232323232323232" green="0.8232323232323232" blue="0.8232323232323232" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="mWQ-0W-qxL" firstAttribute="leading" secondItem="bam-ew-VoL" secondAttribute="leading" constant="30" id="NpX-2H-21E"/>
-                            <constraint firstAttribute="bottom" secondItem="mWQ-0W-qxL" secondAttribute="bottom" constant="30" id="iDg-M0-HWe"/>
-                            <constraint firstItem="mWQ-0W-qxL" firstAttribute="top" secondItem="bam-ew-VoL" secondAttribute="top" constant="30" id="r4M-Hj-YB6"/>
-                            <constraint firstAttribute="trailing" secondItem="mWQ-0W-qxL" secondAttribute="trailing" constant="30" id="xzK-v5-riP"/>
+                            <constraint firstItem="mWQ-0W-qxL" firstAttribute="leading" secondItem="bam-ew-VoL" secondAttribute="leading" constant="35" id="NpX-2H-21E"/>
+                            <constraint firstAttribute="bottom" secondItem="mWQ-0W-qxL" secondAttribute="bottom" constant="35" id="iDg-M0-HWe"/>
+                            <constraint firstItem="mWQ-0W-qxL" firstAttribute="top" secondItem="bam-ew-VoL" secondAttribute="top" constant="35" id="r4M-Hj-YB6"/>
+                            <constraint firstAttribute="trailing" secondItem="mWQ-0W-qxL" secondAttribute="trailing" constant="35" id="xzK-v5-riP"/>
                         </constraints>
                     </view>
                 </subviews>

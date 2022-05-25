@@ -46,6 +46,7 @@
 		F093BDC5282B9C40004DBB62 /* TimeSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F093BDC4282B9C40004DBB62 /* TimeSettingVC.swift */; };
 		F0A035E2283C89350016EC39 /* DetailImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A035E1283C89350016EC39 /* DetailImageVC.swift */; };
 		F0C98C252834C42500298795 /* 30344-hamburger-close-animation.json in Resources */ = {isa = PBXBuildFile; fileRef = F0C98C242834C42500298795 /* 30344-hamburger-close-animation.json */; };
+		F0D8BEA5283DBA8A00F01EFC /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D8BEA4283DBA8A00F01EFC /* Diary.swift */; };
 		F0EF5EB42834DCED00B2C80D /* FloatingButtonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EF5EB32834DCED00B2C80D /* FloatingButtonVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +94,7 @@
 		F093BDC4282B9C40004DBB62 /* TimeSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSettingVC.swift; sourceTree = "<group>"; };
 		F0A035E1283C89350016EC39 /* DetailImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailImageVC.swift; sourceTree = "<group>"; };
 		F0C98C242834C42500298795 /* 30344-hamburger-close-animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "30344-hamburger-close-animation.json"; sourceTree = "<group>"; };
+		F0D8BEA4283DBA8A00F01EFC /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
 		F0EF5EB32834DCED00B2C80D /* FloatingButtonVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButtonVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,6 +168,7 @@
 		F093BD89282B8B95004DBB62 /* GoodDayApplication */ = {
 			isa = PBXGroup;
 			children = (
+				F0D8BEA3283DBA7A00F01EFC /* Models */,
 				F0726769283B343E00DC835B /* CollectionViewCells */,
 				F03894EC283A091D007205F6 /* ViewModels */,
 				F093BDBD282B9B0C004DBB62 /* Views */,
@@ -236,6 +239,14 @@
 				F033B38F283BAEC900BBDC9D /* UnRegisteredDiaryView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		F0D8BEA3283DBA7A00F01EFC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F0D8BEA4283DBA8A00F01EFC /* Diary.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -383,6 +394,7 @@
 				F093BDC1282B9BF0004DBB62 /* NameSettingVC.swift in Sources */,
 				F0726770283B35CD00DC835B /* PhotoCell.swift in Sources */,
 				F03894EF283A0972007205F6 /* TimeSettingVM.swift in Sources */,
+				F0D8BEA5283DBA8A00F01EFC /* Diary.swift in Sources */,
 				F0726766283B2F2C00DC835B /* DiaryCalendarVC.swift in Sources */,
 				F093BDA7282B9A04004DBB62 /* TimeManager.swift in Sources */,
 				F093BD8B282B8B95004DBB62 /* AppDelegate.swift in Sources */,
