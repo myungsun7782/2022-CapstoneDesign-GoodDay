@@ -33,12 +33,28 @@ class DiaryCalendarVC: UIViewController {
     let CALENDAR_BORDER_RADIUS: CGFloat = 1
     let UNREGISTERED_DIARY_VIEW_RADIUS: CGFloat = 38
     let UNREGISTERED_DIARY_VIEW_SHADOW_OPACITY: Float = 0.25
+    let REGISTERED_DIARY_IMAGE_VIEW_RADIUS: CGFloat = 8
+    let REGISTERED_DIARY_BUTTON_RADIUS: CGFloat = 7
     
     // FSCalendar
     let calendarView = FSCalendar()
 
     // UIView
     let unRegisteredDiaryView: UnRegisteredDiaryView = UnRegisteredDiaryView()
+    @IBOutlet weak var registeredDiaryView: UIView!
+    @IBOutlet weak var registeredDiaryPointView: UIView!
+    
+    // UILabel
+    @IBOutlet weak var registeredDiaryDateLabel: UILabel!
+    @IBOutlet weak var registeredDiaryMissionLabel: UILabel!
+    @IBOutlet weak var registeredDiaryTitleLabel: UILabel!
+    @IBOutlet weak var registeredDiaryContentsLabel: UILabel!
+    
+    // UIImageView
+    @IBOutlet weak var registeredDiaryImageView: UIImageView!
+    
+    // UIButton
+    @IBOutlet weak var registeredDiaryButton: UIButton!
     
     // Variables
     var selectedDateStr: String?
@@ -51,6 +67,9 @@ class DiaryCalendarVC: UIViewController {
     func initUI() {
         // FSCalendar
         configureCalendarView()
+        
+        // UIView
+        configureRegisteredDiaryView()
     }
     
     private func configureCalendarView() {
@@ -85,7 +104,8 @@ class DiaryCalendarVC: UIViewController {
         calendarView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20).isActive = true
         calendarView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20).isActive = true
         calendarView.widthAnchor.constraint(equalToConstant: 390).isActive = true
-        calendarView.heightAnchor.constraint(equalToConstant: 420).isActive = true
+        // MARK: CalendarView Height: 420 -> 390
+        calendarView.heightAnchor.constraint(equalToConstant: 390).isActive = true
     }
     
     private func configureUnRegisteredDiaryView() {
@@ -120,6 +140,41 @@ class DiaryCalendarVC: UIViewController {
         present(diaryDetailVC, animated: true, completion: nil)
     }
     
+    private func configureRegisteredDiaryView() {
+        registeredDiaryView.isHidden = true
+        registeredDiaryView.alpha = 0
+        // UIView
+        registeredDiaryView.layer.cornerRadius = UNREGISTERED_DIARY_VIEW_RADIUS
+        registeredDiaryView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        registeredDiaryView.layer.shadowOpacity = UNREGISTERED_DIARY_VIEW_SHADOW_OPACITY
+        makePointViewGradient()
+        
+        // UIImageView
+        registeredDiaryImageView.layer.cornerRadius = REGISTERED_DIARY_IMAGE_VIEW_RADIUS
+        
+        // UIButton
+        registeredDiaryButton.layer.cornerRadius = REGISTERED_DIARY_BUTTON_RADIUS
+        registeredDiaryButton.setTitle("더 보기", for: .normal)
+        registeredDiaryButton.titleLabel?.font = FontManager.shared.getNanumSquareB(fontSize: 18)
+        registeredDiaryButton.titleLabel?.textColor = ColorManager.shared.getWhite()
+    }
+    
+    private func makePointViewGradient() {
+        let gradientLayer = CAGradientLayer()
+        let colors: [CGColor] = [
+            ColorManager.shared.getThemeMain().cgColor,
+            ColorManager.shared.getPointViewColor().cgColor]
+        
+        gradientLayer.frame = registeredDiaryPointView.bounds
+        gradientLayer.colors = colors
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
+        gradientLayer.cornerRadius = registeredDiaryPointView.frame.width / 2
+        
+        registeredDiaryPointView.layer.addSublayer(gradientLayer)
+        registeredDiaryPointView.layer.cornerRadius = registeredDiaryPointView.frame.height / 2
+    }
+    
     @IBAction func tapBackButton(_ sender: UIButton) {
         let notificationName = Notification.Name("sendBoolData")
         let boolDic = ["isShowFloating" : false]
@@ -146,6 +201,4 @@ extension DiaryCalendarVC: FSCalendarDelegate, FSCalendarDataSource {
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
         return 0
     }
-    
-    
 }
