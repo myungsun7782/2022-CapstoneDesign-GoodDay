@@ -31,11 +31,8 @@ class DetailImageVC: UIViewController {
             self.testImageView.image = self.detailImage
         })
     }
-    
 
     @objc private func tapContainerView(_: UIView) {
         self.dismiss(animated: true)
     }
-
-
 }

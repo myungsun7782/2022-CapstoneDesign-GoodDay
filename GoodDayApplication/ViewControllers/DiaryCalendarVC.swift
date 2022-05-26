@@ -35,6 +35,7 @@ class DiaryCalendarVC: UIViewController {
     let UNREGISTERED_DIARY_VIEW_SHADOW_OPACITY: Float = 0.25
     let REGISTERED_DIARY_IMAGE_VIEW_RADIUS: CGFloat = 8
     let REGISTERED_DIARY_BUTTON_RADIUS: CGFloat = 7
+    let REGISTERED_DIARY_CONTENTS_LABEL_LINE_SPACING: CGFloat = 3
     
     // FSCalendar
     let calendarView = FSCalendar()
@@ -58,9 +59,9 @@ class DiaryCalendarVC: UIViewController {
     
     // Variables
     var selectedDateStr: String!
+    var selectedDate: Date!
     var registeredDiaryDateList = [String]()
     var diaryList = [Diary]()
-    var isRegisteredDiary: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,6 +79,9 @@ class DiaryCalendarVC: UIViewController {
         
         // UIView
         configureRegisteredDiaryView()
+        
+        // DiaryViews - 처음 DiaryCalendarView에 들어왔을 때는 오늘 날짜를 기준으로 DiaryView를 설정함.
+        configureDiaryView(diaryDate: Date())
     }
     
     private func configureCalendarView() {
@@ -138,11 +142,11 @@ class DiaryCalendarVC: UIViewController {
     }
     
     @objc private func tapRegisterButton() {
-        let storyboard = UIStoryboard(name: "DiaryViews", bundle: nil)
-        let diaryDetailVC = storyboard.instantiateViewController(withIdentifier: "DiaryDetailVC") as! DiaryDetailVC
+        let diaryDetailVC = UIStoryboard(name: "DiaryViews", bundle: nil).instantiateViewController(withIdentifier: "DiaryDetailVC") as! DiaryDetailVC
 
         diaryDetailVC.diaryEditorMode = .new
         diaryDetailVC.diaryDelegate = self
+        diaryDetailVC.diaryDate = selectedDate
         diaryDetailVC.diaryDateStr = unRegisteredDiaryView.dateLabel.text
         diaryDetailVC.modalPresentationStyle = .overFullScreen
         diaryDetailVC.modalTransitionStyle = .crossDissolve
@@ -159,12 +163,35 @@ class DiaryCalendarVC: UIViewController {
         
         // UIImageView
         registeredDiaryImageView.layer.cornerRadius = REGISTERED_DIARY_IMAGE_VIEW_RADIUS
+        registeredDiaryImageView.isUserInteractionEnabled = true
+        registeredDiaryImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapPhotoImageView(_:))))
         
         // UIButton
         registeredDiaryButton.layer.cornerRadius = REGISTERED_DIARY_BUTTON_RADIUS
         registeredDiaryButton.setTitle("더 보기", for: .normal)
         registeredDiaryButton.titleLabel?.font = FontManager.shared.getNanumSquareB(fontSize: 18)
         registeredDiaryButton.titleLabel?.textColor = ColorManager.shared.getWhite()
+        
+        // UILabel
+        configureRegisteredDiaryContentsLabel()
+    }
+    
+    @objc private func tapPhotoImageView(_ sender: AnyObject) {
+        print("tap ImageView")
+        let DetailImageVC = UIStoryboard(name: "DiaryViews", bundle: nil).instantiateViewController(withIdentifier: "DetailImageVC") as! DetailImageVC
+        
+        DetailImageVC.detailImage = self.registeredDiaryImageView.image
+        DetailImageVC.modalTransitionStyle = .crossDissolve
+        DetailImageVC.modalPresentationStyle = .overFullScreen
+        self.present(DetailImageVC, animated: true)
+    }
+    
+    private func configureRegisteredDiaryContentsLabel() {
+        let attrString = NSMutableAttributedString(string: registeredDiaryContentsLabel.text!)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = REGISTERED_DIARY_CONTENTS_LABEL_LINE_SPACING
+        attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attrString.length))
+        registeredDiaryContentsLabel.attributedText = attrString
     }
     
     private func makePointViewGradient() {
@@ -183,27 +210,27 @@ class DiaryCalendarVC: UIViewController {
         registeredDiaryPointView.layer.cornerRadius = registeredDiaryPointView.frame.height / 2
     }
     
-    private func validateIsRegisteredDiary(selectedDate: String) {
-        if registeredDiaryDateList.contains(selectedDate) {
-            isRegisteredDiary = true
-        } else {
-            isRegisteredDiary = false
-        }
-    }
     // MARK: 일기 등록 여부에 따라 일기장 view를 결정해주는 메소드
-    private func configureDiaryView() {
-        if !isRegisteredDiary {
-            configureUnRegisteredDiaryView()
-            unRegisteredDiaryView.isHidden = false
-            registeredDiaryView.isHidden = true
-            animateUnRegisteredDiaryView()
-            unRegisteredDiaryView.dateLabel.text = selectedDateStr
-        } else {
+    private func configureDiaryView(diaryDate: Date) {
+        // 해당 diaryDate에 일기장이 등록되어 있는 경우 (Diary Instance 존재)
+        if registeredDiaryDateList.contains(TimeManager.shared.dateToYearMonthDayString(date: diaryDate)) {
+            let diaryObject = searchDiaryObject(diaryDate: diaryDate)
+            
             configureRegisteredDiaryView()
             registeredDiaryView.isHidden = false
             unRegisteredDiaryView.isHidden = true
             animateRegisteredDiaryView()
-            registeredDiaryDateLabel.text = selectedDateStr
+            registeredDiaryDateLabel.text = diaryObject.date
+            registeredDiaryImageView.image = diaryObject.photoList[0]
+            registeredDiaryTitleLabel.text = diaryObject.title
+            registeredDiaryContentsLabel.text = diaryObject.contents
+        } else { // 해당 diaryDate에 일기장이 등록되어 있지 않는 경우
+            selectedDate = diaryDate
+            configureUnRegisteredDiaryView()
+            unRegisteredDiaryView.isHidden = false
+            registeredDiaryView.isHidden = true
+            animateUnRegisteredDiaryView()
+            unRegisteredDiaryView.dateLabel.text = TimeManager.shared.dateToYearMonthDayString(date: diaryDate)
         }
     }
     
@@ -220,6 +247,20 @@ class DiaryCalendarVC: UIViewController {
         } completion: { (completion) in
         }
     }
+    // MARK: diaryDate에 해당하는 diary 객체를 반환해주는 메소드
+    private func searchDiaryObject(diaryDate: Date) -> Diary {
+        // 이 메소드를 호출하는 경우는 diaryDate에 해당 diary가 존재한다는 가정 하에 실행하기 때문에 diary Instance가 존재할 수 밖에 없음.
+        var diaryObject: Diary!
+        let diaryDateStr = TimeManager.shared.dateToYearMonthDayString(date: diaryDate)
+        
+        for diary in diaryList {
+            if diaryDateStr == diary.date {
+                diaryObject = diary
+                break
+            }
+        }
+        return diaryObject
+    }
     
     @IBAction func tapBackButton(_ sender: UIButton) {
         let notificationName = Notification.Name("sendBoolData")
@@ -227,28 +268,29 @@ class DiaryCalendarVC: UIViewController {
         NotificationCenter.default.post(name: notificationName, object: nil, userInfo: boolDic)
         dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func tapSeeMoreButton(_ sender: UIButton) {
+        let diaryDetailVC = UIStoryboard(name: "DiaryViews", bundle: nil).instantiateViewController(withIdentifier: "DiaryDetailVC") as! DiaryDetailVC
+        let diaryObject = searchDiaryObject(diaryDate: selectedDate)
+        
+        diaryDetailVC.diaryEditorMode = .edit
+        diaryDetailVC.diaryDelegate = self
+        diaryDetailVC.diaryObject = diaryObject
+        diaryDetailVC.diaryDateStr = diaryObject.date
+        diaryDetailVC.diaryDate = selectedDate
+        diaryDetailVC.modalPresentationStyle = .overFullScreen
+        diaryDetailVC.modalTransitionStyle = .crossDissolve
+        present(diaryDetailVC, animated: true, completion: nil)
+    }
+    
 }
 
 extension DiaryCalendarVC: FSCalendarDelegate, FSCalendarDataSource {
     // 캘린더에서 날짜가 선택되었을 때 호출되는 메소드
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        selectedDate = date
         selectedDateStr = TimeManager.shared.dateToYearMonthDayString(date: date)
-        validateIsRegisteredDiary(selectedDate: selectedDateStr)
-        configureDiaryView()
-//        // 선택된 날짜에 일기가 등록되어 있는 경우
-//        if !isRegisteredDiary {
-//            configureUnRegisteredDiaryView()
-//            unRegisteredDiaryView.isHidden = false
-//            registeredDiaryView.isHidden = true
-//            animateUnRegisteredDiaryView()
-//            unRegisteredDiaryView.dateLabel.text = selectedDateStr
-//        } else { // 선택된 날짜에 일기가 등록되어 있지 않은 경우
-//            configureRegisteredDiaryView()
-//            registeredDiaryView.isHidden = false
-//            unRegisteredDiaryView.isHidden = true
-//            animateRegisteredDiaryView()
-//            registeredDiaryDateLabel.text = selectedDateStr
-//        }
+        configureDiaryView(diaryDate: date)
     }
     // 캘린더에 표시되는 이벤트 갯수를 반환해주는 메소드
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
@@ -262,22 +304,40 @@ extension DiaryCalendarVC: FSCalendarDelegate, FSCalendarDataSource {
 }
 
 extension DiaryCalendarVC: DelegateDiaryDetailVC {
-    func passDiaryData(date: String, title: String, contents: String, photoList: [UIImage]) {
-        let diary = Diary(title: title, contents: contents, date: date, photoList: photoList)
-        
-        diaryList.append(diary)
-        registeredDiaryDateList.append(date)
-        registeredDiaryDateLabel.text = date
-        registeredDiaryImageView.image = photoList[0]
-        registeredDiaryTitleLabel.text = title
-        registeredDiaryContentsLabel.text = contents
+    func passDiaryData(date: Date, dateStr: String, title: String, contents: String, photoList: [UIImage], diaryEditorMode: DiaryEditorMode) {
+        let diary = Diary(title: title, contents: contents, date: dateStr, photoList: photoList)
+        if diaryEditorMode == .new {
+            diaryList.append(diary)
+            registeredDiaryDateList.append(dateStr)
+        } else if diaryEditorMode == .edit {
+            for (idx, diaryObj) in diaryList.enumerated() {
+                if diaryObj.date == diary.date {
+                    diaryList[idx].title = title
+                    diaryList[idx].contents = contents
+                    diaryList[idx].photoList = photoList
+                    break
+                }
+            }
+        }
+        selectedDate = date
+        configureDiaryView(diaryDate: date)
         calendarView.reloadData()
-        validateIsRegisteredDiary(selectedDate: date)
-        configureDiaryView()
-        
     }
-    
-//    func passModifiedDiaryDate(date: String, title: String, contents: String, photoList: [UIImage]) {
-//        
-//    }
+    func deleteDiaryData(date: Date) {
+        let deletedDiaryDate = TimeManager.shared.dateToYearMonthDayString(date: date)
+        for (idx, diaryObj) in diaryList.enumerated() {
+            if diaryObj.date == deletedDiaryDate {
+                diaryList.remove(at: idx)
+                break
+            }
+        }
+        for (idx, diaryDateStrVal) in registeredDiaryDateList.enumerated() {
+            if diaryDateStrVal == deletedDiaryDate {
+                registeredDiaryDateList.remove(at: idx)
+                break
+            }
+        }
+        configureDiaryView(diaryDate: date)
+        calendarView.reloadData()
+    }
 }

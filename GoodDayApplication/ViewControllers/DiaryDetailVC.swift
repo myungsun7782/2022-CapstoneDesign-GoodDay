@@ -28,9 +28,8 @@ import Photos
 import Hero
 
 protocol DelegateDiaryDetailVC: AnyObject {
-    func passDiaryData(date: String, title: String, contents: String, photoList: [UIImage])
-    
-//    func passModifiedDiaryDate(date: String, title: String, contents: String, photoList: [UIImage])
+    func passDiaryData(date: Date, dateStr: String, title: String, contents: String, photoList: [UIImage], diaryEditorMode: DiaryEditorMode)
+    func deleteDiaryData(date: Date)
 }
 
 class DiaryDetailVC: UIViewController {
@@ -65,7 +64,9 @@ class DiaryDetailVC: UIViewController {
     var photoList = Array<UIImage>()
     var diaryEditorMode: DiaryEditorMode?
     var diaryDateStr: String!
+    var diaryDate: Date!
     var diaryDelegate: DelegateDiaryDetailVC?
+    var diaryObject: Diary?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,6 +96,9 @@ class DiaryDetailVC: UIViewController {
         configureDiaryDeleteButton()
         configureFinishButton()
         validateInputField()
+        
+        // PhotoList
+        configurePhotoList()
     }
     
     private func configurePointView() {
@@ -121,8 +125,12 @@ class DiaryDetailVC: UIViewController {
         contentsTextView.font = FontManager.shared.getNanumSquareR(fontSize: 15)
         
         if diaryEditorMode == .new {
-            self.contentsTextView.text = "내용을 입력하세요."
-            self.contentsTextView.textColor = ColorManager.shared.getContentsTextFieldColor()
+            contentsTextView.text = "내용을 입력하세요."
+            contentsTextView.textColor = ColorManager.shared.getContentsTextFieldColor()
+        } else {
+            guard let diaryContents = diaryObject?.contents else { return }
+            contentsTextView.text = diaryContents
+            contentsTextView.textColor = .black
         }
         contentsTextView.delegate = self
     }
@@ -140,6 +148,11 @@ class DiaryDetailVC: UIViewController {
         titleTextField.leftView = leftPadding
         titleTextField.leftViewMode = UITextField.ViewMode.always
         titleTextField.font = FontManager.shared.getNanumSquareR(fontSize: 15)
+        
+        if diaryEditorMode == .edit {
+            guard let diaryTitle = diaryObject?.title else { return }
+            titleTextField.text = diaryTitle
+        }
         
         titleTextField.addTarget(self, action: #selector(DidTitleTextFiledChange(_:)), for: .editingChanged)
     }
@@ -183,24 +196,50 @@ class DiaryDetailVC: UIViewController {
         }
     }
     
+    private func configurePhotoList() {
+        if diaryEditorMode == .edit {
+            guard let diaryPhotoList = diaryObject?.photoList else { return }
+            photoList = diaryPhotoList
+            photoCollectionView.reloadData()
+        }
+    }
+    
+    private func deleteDiary() {
+        let alert = UIAlertController(title: "삭제", message: "정말로 해당 날짜의 일기를 삭제하시겠습니까?", preferredStyle: .alert)
+        let deleteButton = UIAlertAction(title: "삭제", style: .destructive) { _ in
+            self.diaryDelegate?.deleteDiaryData(date: self.diaryDate)
+            self.dismiss(animated: true)
+        }
+        let cancelButon = UIAlertAction(title: "취소", style: .cancel)
+        
+        alert.addAction(deleteButton)
+        alert.addAction(cancelButon)
+        present(alert, animated: true)
+    }
+    
     @IBAction func tapBackButton(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func tapFinishButton(_ sender: UIButton) {
         if diaryEditorMode == .new {
-            guard let date = diaryDateLabel.text else { return }
+            guard let diaryDateStr = diaryDateLabel.text else { return }
             guard let title = titleTextField.text else { return }
             guard let contents = contentsTextView.text else { return }
             
-            diaryDelegate?.passDiaryData(date: date, title: title, contents: contents, photoList: photoList)
+            diaryDelegate?.passDiaryData(date: diaryDate, dateStr: diaryDateStr, title: title, contents: contents, photoList: photoList, diaryEditorMode: .new)
         } else if diaryEditorMode == .edit {
-            guard let date = diaryDateLabel.text else { return }
-            guard let title = titleTextField.text else { return }
-            guard let contents = contentsTextView.text else { return }
+            guard let diaryDateStr = diaryDateLabel.text else { return }
+            guard let editedTitle = titleTextField.text else { return }
+            guard let editedContents = contentsTextView.text else { return }
             
+            diaryDelegate?.passDiaryData(date: diaryDate, dateStr: diaryDateStr, title: editedTitle, contents: editedContents, photoList: photoList, diaryEditorMode: .edit)
         }
         dismiss(animated: true)
+    }
+    
+    @IBAction func tapDeleteButton(_ sender: UIButton) {
+        deleteDiary()
     }
     
     // 유저가 화면을 터치하면 호출되는 메서드
@@ -240,10 +279,6 @@ extension DiaryDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, U
         let index = button.tag
         photoList.remove(at: index)
         photoCollectionView.reloadData()
-    }
-    
-    @objc private func tapPhotoImageView(view: UIView) {
-
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
