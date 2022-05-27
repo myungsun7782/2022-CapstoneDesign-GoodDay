@@ -46,6 +46,7 @@
 		F093BDC5282B9C40004DBB62 /* TimeSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F093BDC4282B9C40004DBB62 /* TimeSettingVC.swift */; };
 		F0A035E2283C89350016EC39 /* DetailImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A035E1283C89350016EC39 /* DetailImageVC.swift */; };
 		F0C98C252834C42500298795 /* 30344-hamburger-close-animation.json in Resources */ = {isa = PBXBuildFile; fileRef = F0C98C242834C42500298795 /* 30344-hamburger-close-animation.json */; };
+		F0CF9BFD28411B5400AA0344 /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CF9BFC28411B5400AA0344 /* Mission.swift */; };
 		F0D8BEA5283DBA8A00F01EFC /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D8BEA4283DBA8A00F01EFC /* Diary.swift */; };
 		F0EF5EB42834DCED00B2C80D /* FloatingButtonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EF5EB32834DCED00B2C80D /* FloatingButtonVC.swift */; };
 /* End PBXBuildFile section */
@@ -94,6 +95,7 @@
 		F093BDC4282B9C40004DBB62 /* TimeSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSettingVC.swift; sourceTree = "<group>"; };
 		F0A035E1283C89350016EC39 /* DetailImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailImageVC.swift; sourceTree = "<group>"; };
 		F0C98C242834C42500298795 /* 30344-hamburger-close-animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "30344-hamburger-close-animation.json"; sourceTree = "<group>"; };
+		F0CF9BFC28411B5400AA0344 /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 		F0D8BEA4283DBA8A00F01EFC /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
 		F0EF5EB32834DCED00B2C80D /* FloatingButtonVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButtonVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -245,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				F0D8BEA4283DBA8A00F01EFC /* Diary.swift */,
+				F0CF9BFC28411B5400AA0344 /* Mission.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 			files = (
 				F093BD8F282B8B95004DBB62 /* MainVC.swift in Sources */,
 				F093BDC3282B9C08004DBB62 /* MbtiSettingVC.swift in Sources */,
+				F0CF9BFD28411B5400AA0344 /* Mission.swift in Sources */,
 				F0011A75283639E9002346AA /* MyPageVC.swift in Sources */,
 				F033B390283BAEC900BBDC9D /* UnRegisteredDiaryView.swift in Sources */,
 				F0726768283B2F3D00DC835B /* DiaryDetailVC.swift in Sources */,
