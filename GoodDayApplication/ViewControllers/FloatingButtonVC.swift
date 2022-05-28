@@ -13,6 +13,16 @@ protocol DelegateFloatingButtonVC: AnyObject {
 }
 
 class FloatingButtonVC: UIViewController {
+    // Constants
+    let missionImg = UIImage(systemName: "target", withConfiguration: UIImage.SymbolConfiguration(pointSize: 12))
+    let diaryImg = UIImage(systemName: "pencil", withConfiguration: UIImage.SymbolConfiguration(pointSize: 12))
+    let myPageImg = UIImage(systemName: "person.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 12))
+    let animationView = AnimationView(name: "30344-hamburger-close-animation")
+    let BUTTON_SHADOW_OPACITY: Float = 1
+    let BUTTON_SHADOW_RADIUS: CGFloat = 5
+    let ANIMATION_VIEW_SIZE: CGFloat = 32
+    let FLOATING_VIEW_ALPHA: CGFloat = 0.65
+    
     // UIButton
     @IBOutlet weak var missionButton: UIButton!
     @IBOutlet weak var diaryButton: UIButton!
@@ -35,14 +45,6 @@ class FloatingButtonVC: UIViewController {
     @IBOutlet weak var myPageLabelCenterY: NSLayoutConstraint!
     
     // Variables
-    let missionImg = UIImage(systemName: "target", withConfiguration: UIImage.SymbolConfiguration(pointSize: 12))
-    let diaryImg = UIImage(systemName: "pencil", withConfiguration: UIImage.SymbolConfiguration(pointSize: 12))
-    let myPageImg = UIImage(systemName: "person.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 12))
-    let animationView = AnimationView(name: "30344-hamburger-close-animation")
-    let BUTTON_SHADOW_OPACITY: Float = 1
-    let BUTTON_SHADOW_RADIUS: CGFloat = 5
-    let ANIMATION_VIEW_SIZE: CGFloat = 32
-    let FLOATING_VIEW_ALPHA: CGFloat = 0.65
     weak var delegate: DelegateFloatingButtonVC?
     
     override func viewDidLoad() {
@@ -175,6 +177,16 @@ class FloatingButtonVC: UIViewController {
     }
     
     @IBAction func tapMissionButton(_ sender: UIButton) {
+        let presentView = presentingViewController
+        
+        dismiss(animated: false) {
+            let storyboard = UIStoryboard(name: "MissionViews", bundle: nil)
+            let diaryCalendarVC = storyboard.instantiateViewController(withIdentifier: "MissionVC") as! MissionVC
+            
+            diaryCalendarVC.modalPresentationStyle = .overFullScreen
+            diaryCalendarVC.modalTransitionStyle = .crossDissolve
+            presentView?.present(diaryCalendarVC, animated: true, completion: nil)
+        }
     }
     
     @IBAction func tapDiaryButton(_ sender: UIButton) {

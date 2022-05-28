@@ -18,4 +18,5 @@ target 'GoodDayApplication' do
   pod 'SwiftyJSON'
   pod 'BSImagePicker'
   pod 'Hero'
+  pod 'MSPeekCollectionViewDelegateImplementation'
 end
