@@ -15,6 +15,7 @@
 		F03894EF283A0972007205F6 /* TimeSettingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03894EE283A0972007205F6 /* TimeSettingVM.swift */; };
 		F04CC9A828422EDB008A3E53 /* MissionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04CC9A628422EDB008A3E53 /* MissionCell.swift */; };
 		F04CC9A928422EDB008A3E53 /* MissionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F04CC9A728422EDB008A3E53 /* MissionCell.xib */; };
+		F05810C62843B38B007DE964 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05810C52843B38B007DE964 /* FirebaseManager.swift */; };
 		F0726764283B2EFE00DC835B /* DiaryViews.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0726763283B2EFE00DC835B /* DiaryViews.storyboard */; };
 		F0726766283B2F2C00DC835B /* DiaryCalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0726765283B2F2C00DC835B /* DiaryCalendarVC.swift */; };
 		F0726768283B2F3D00DC835B /* DiaryDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0726767283B2F3D00DC835B /* DiaryDetailVC.swift */; };
@@ -66,6 +67,7 @@
 		F03894EE283A0972007205F6 /* TimeSettingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSettingVM.swift; sourceTree = "<group>"; };
 		F04CC9A628422EDB008A3E53 /* MissionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCell.swift; sourceTree = "<group>"; };
 		F04CC9A728422EDB008A3E53 /* MissionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MissionCell.xib; sourceTree = "<group>"; };
+		F05810C52843B38B007DE964 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		F0726763283B2EFE00DC835B /* DiaryViews.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DiaryViews.storyboard; sourceTree = "<group>"; };
 		F0726765283B2F2C00DC835B /* DiaryCalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryCalendarVC.swift; sourceTree = "<group>"; };
 		F0726767283B2F3D00DC835B /* DiaryDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDetailVC.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 				F093BDA4282B99E4004DBB62 /* UserDefaultsManager.swift */,
 				F093BDA6282B9A04004DBB62 /* TimeManager.swift */,
 				F093BDA8282B9A25004DBB62 /* FontManager.swift */,
+				F05810C52843B38B007DE964 /* FirebaseManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F05810C62843B38B007DE964 /* FirebaseManager.swift in Sources */,
 				F093BD8F282B8B95004DBB62 /* MainVC.swift in Sources */,
 				F093BDC3282B9C08004DBB62 /* MbtiSettingVC.swift in Sources */,
 				F0CF9BFD28411B5400AA0344 /* Mission.swift in Sources */,

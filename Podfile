@@ -9,6 +9,7 @@ target 'GoodDayApplication' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Crashlytics'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
   pod 'lottie-ios'
   pod 'FSCalendar'
   pod 'IQKeyboardManagerSwift'
