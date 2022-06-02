@@ -107,9 +107,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DMR-tS-xNG">
-                                        <rect key="frame" x="66" y="56" width="87.5" height="19"/>
+                                        <rect key="frame" x="66" y="56" width="92" height="19"/>
                                         <attributedString key="attributedText">
-                                            <fragment content="분리수거 하기">
+                                            <fragment content="맛있는 거 먹기">
                                                 <attributes>
                                                     <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <font key="NSFont" size="16" name="NanumSquareOTFR"/>
@@ -268,7 +268,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="jKu-pa-0yT">
-                                <rect key="frame" x="30" y="185.5" width="130.5" height="20"/>
+                                <rect key="frame" x="30" y="185.5" width="135.5" height="20"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uFF-77-8hU">
                                         <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -279,11 +279,11 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgu-GI-Aph">
-                                        <rect key="frame" x="32" y="0.0" width="98.5" height="20"/>
+                                        <rect key="frame" x="32" y="0.0" width="103.5" height="20"/>
                                         <attributedString key="attributedText">
-                                            <fragment content="분리수거 하기">
+                                            <fragment content="맛있는 거 먹기">
                                                 <attributes>
-                                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <font key="NSFont" size="18" name="NanumSquareOTFR"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>

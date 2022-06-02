@@ -217,6 +217,14 @@ class DiaryDetailVC: UIViewController {
         present(alert, animated: true)
     }
     
+    private func UploadImages() {
+        
+        for (_ , img) in photoList.enumerated() {
+            let uid = UUID().uuidString
+            FirebaseManager.shared.uploadImage(image: img, filePath: uid)
+        }
+    }
+    
     @IBAction func tapBackButton(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
@@ -227,6 +235,7 @@ class DiaryDetailVC: UIViewController {
             guard let title = titleTextField.text else { return }
             guard let contents = contentsTextView.text else { return }
             
+            UploadImages()
             diaryDelegate?.passDiaryData(date: diaryDate, dateStr: diaryDateStr, title: title, contents: contents, photoList: photoList, diaryEditorMode: .new)
         } else if diaryEditorMode == .edit {
             guard let diaryDateStr = diaryDateLabel.text else { return }

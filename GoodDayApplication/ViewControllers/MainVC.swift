@@ -5,8 +5,37 @@
 //  Created by myungsun on 2022/05/11.
 //
 
+/**
+ //    func uploadImage(img: UIImage) {
+ //        var data = Data()
+ //        data = img.jpegData(compressionQuality: 0.8)!
+ //        let filePath = "image"
+ //        let metaData = StorageMetadata()
+ //        metaData.contentType = "image/png"
+ //        storage.reference().child(filePath).putData(data, metadata: metaData) { (metaData, error) in if let error = error {
+ //            print(error.localizedDescription)
+ //            return
+ //        }else {
+ //            print("성공")
+ //        }
+ //        }
+ //    }
+ //
+ //    func downloadImage(imgView: UIImageView) {
+ //        storage.reference(forURL: "gs://capstonedesign-7ade2.appspot.com/image").downloadURL //            { (url, error) in
+ //            let data = NSData(contentsOf: url!)
+ //            let image = UIImage(data: data! as Data)
+ //            print("download success!!")
+ //            print("url: \(url?.description)")
+ //            imgView.image = image
+ //
+ //        }
+ //    }
+**/
+
 import UIKit
 import Lottie
+import FirebaseStorage
 
 class MainVC: UIViewController {
     // UIView
@@ -41,7 +70,7 @@ class MainVC: UIViewController {
         super.viewDidLoad()
         initUI()
     }
-    
+        
     private func initUI() {
         // UIView
         configureMissionView()

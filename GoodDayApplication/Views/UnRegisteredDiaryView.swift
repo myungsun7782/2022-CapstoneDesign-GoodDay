@@ -40,7 +40,7 @@ class UnRegisteredDiaryView: UIView {
     
     let missionLabel: UILabel = {
         let label = UILabel()
-        let MISSION_DEFAULT_TEXT = "분리수거 하기"
+        let MISSION_DEFAULT_TEXT = "맛있는 거 먹기"
         
         label.font = FontManager.shared.getNanumSquareR(fontSize: 17)
         label.translatesAutoresizingMaskIntoConstraints = false
